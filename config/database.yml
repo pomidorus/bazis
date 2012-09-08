@@ -1,0 +1,33 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bazis_dev_1
+  pool: 5
+  username: bazis
+  password: test
+
+  host: localhost
+  port: 5433
+
+#  host: 192.168.0.105
+#  port: 5433
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bazis_dev_1_test
+  pool: 5
+  username: bazis_dev_1
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bazis_dev_1
+  pool: 5
+  username: bazis
+  password: test
+  host: 192.168.0.105
+  port: 5433

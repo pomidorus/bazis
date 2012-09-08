@@ -1,0 +1,8 @@
+<% m = 'roles' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<h2>Роли</h2>
+
+<% @roles.each do |r| -%>
+    <p style="color: #808080;"><%= link_to r.name, :controller => "admin/roles", :action => 'show', :id => r.id %> <%= role_people_count(@ruc,r.id) %> </p>
+<% end %>

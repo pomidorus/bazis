@@ -1,0 +1,93 @@
+
+<section>
+
+    <header>
+      <h2>Базис</h2>
+    </header>
+
+    <div class="row" style="margin-top: 150px;">
+     <div class="span4 offset4" style="background-color: #EEEEEE; width: 380px;" >
+
+       <section style="padding-left: 10px;">
+
+
+         <%- if resource_name == :user %>
+           <%= link_to "Войти как администратор", new_admin_session_path %>
+           <header>
+             <h2>Вход для пользователя</h2>
+           </header>
+         <% end -%>
+
+         <%- if resource_name == :admin %>
+           <%= link_to "Войти как пользователь", new_user_session_path %>
+           <header>
+             <h2>Вход для администратора</h2>
+           </header>
+         <% end -%>
+
+           <article>
+
+             <%- if (not admin_signed_in?) && (not user_signed_in?)  %>
+
+                 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+
+                     <div style="margin-top: 17px;">
+
+                       <div class="row">
+                         <div class="span1">
+                           <span style="margin-left:15px; position:relative; top:3px;">Логин:</span>
+                         </div>
+                         <div class="span3" style="margin-left: 15px;">
+                           <%= f.text_field :login %>
+                         </div>
+                       </div>
+
+                         <div class="row">
+                           <div class="span1">
+                             <span style="margin-left:15px;  position:relative; top:3px;">Пароль:</span>
+                           </div>
+                           <div class="span3" style="margin-left: 15px;">
+                             <%= f.password_field :password %>
+                           </div>
+                         </div>
+
+
+                     </div>
+
+                     <div class="row" style="margin-top: 9px;">
+                       <div class="span1 offset1">
+                         <%= f.submit "Войти" %>
+                       </div>
+                     </div>
+
+
+                   <!--<% if devise_mapping.rememberable? -%>-->
+                     <!--<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>-->
+                   <!--<% end -%>-->
+
+                 <% end %>
+
+             <% else -%>
+                <p>Выйдите из под админа</p>
+             <% end -%>
+
+
+
+
+           </article>
+       </section>
+
+
+     </div>
+    </div>
+
+
+    <footer style="width:90%; position: absolute; bottom: 10px; font-size: 0.9em; border-top-style: dashed; border-top-color: #EEEEEE; border-top-width: 1px;">
+      <div style="padding-top: 7px;">
+        <span>&copy; 2012, <a href="#">БломИнфо-Юкрейн</a></span>
+        <span id="ae_link" style="margin-left:30px;">&copy; 2012, <a href="#">Андрей Селезнев</a></span>
+      </div>
+    </footer>
+
+</section>

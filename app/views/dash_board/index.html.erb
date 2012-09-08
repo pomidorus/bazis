@@ -1,0 +1,10 @@
+<% m = 'db' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<% if admin_signed_in? %>
+  <%= render :partial => "layouts/admindb" %>
+<% end %>
+
+
+
+

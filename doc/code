@@ -1,0 +1,34 @@
+<% if user_signed_in? %>
+  <div>Signed in as... <%= current_user.username %></div>
+<% end %>
+
+<% if admin_signed_in? %>
+  <div>Signed in as... <%= current_admin.username %></div>
+<% end %>
+
+
+<% if admin_signed_in? %>
+  <%= link_to "Пользователи", :controller => "admin/users", :action => 'index' %>
+<% end %>
+
+<br>
+
+<%= link_to "Выйти", destroy_user_session_path, :method => "Delete" %>
+
+<br>
+
+
+          <% if m == 'users' %>
+             <li style="padding-right: 10px; padding-left: 10px;"><span style="position: relative; top: 8px; color:white; font-weight: bold;">Polsovateli</span></li>
+          <% else %>
+             <li style="margin-right: 5px;"><%= link_to "Polsovateli", :controller => "admin/roles", :action => 'index'  %></li>
+          <% end %>
+
+          <% if m == 'roles' %>
+             <li style="padding-right: 10px; padding-left: 10px;"><span style="position: relative; top: 8px; color:white; font-weight: bold;">Roli</span></li>
+          <% else %>
+             <li style="margin-right: 5px;"><%= link_to "Roli", :controller => "admin/roles", :action => 'index'  %></li>
+          <% end %>
+
+
+<%= debug params %>

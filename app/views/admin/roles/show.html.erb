@@ -1,0 +1,18 @@
+<% m = 'roles' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<%= link_to "Все роли", :controller => "admin/roles", :action => 'index' %>
+
+<p class="role_link" style="margin-top: 10px;"><%= link_to "<-- " + @role_left.name, :controller => "admin/roles", :action => 'show', :id => @role_left.id  %><%= link_to @role_right.name  + " -->", :controller => "admin/roles", :action => 'show', :id => @role_right.id  %></p>
+<h2 style="margin-top: 25px;"><%= @role.name %></h2>
+<p><%= @role.desc.html_safe %></p>
+
+
+<% if not @role_users.count == 0 then %>
+  <h4 style="margin-top: 25px;">Пользователи с такой ролью:</h4>
+  <% @role_users.each do |ru| %>
+    <p><%= link_to ru.obr_name, :controller => "admin/users", :action => 'show', :id => ru.id  %> 4 месяца (prodolgitelnost roli)</p>
+  <% end %>
+<% else %>
+  <h4 style="margin-top: 25px;">Polsovateley c takoy roliu net.</h4>
+<% end %>

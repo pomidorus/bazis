@@ -1,0 +1,57 @@
+<header class="navbar">
+<div class="navbar-inner">
+  <div class="container">
+    <a class="brand" href="/">Базис</a>
+
+    <% if admin_signed_in? %>
+    <% end %>
+
+    <% if admin_signed_in? %>
+        <ul class="nav" style="margin-left: 25px;">
+          <%= menu_select('Пользователи',m,'users') %>
+          <%= menu_select('Роли',m,'roles') %>
+        </ul>
+    <% end %>
+
+    <ul class="nav" style="float: right;">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+          <% if admin_signed_in? %>
+            Администратор<b class="caret"></b>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <%= current_user.role.name %><b class="caret"></b>
+          <% end %>
+
+        </a>
+        <ul class="dropdown-menu">
+
+          <% if admin_signed_in? %>
+              <li style="margin-left: 15px;"><%= current_admin.full_name %></li>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <li style="margin-left: 15px;"><%= current_user.full_name %></li>
+          <% end %>
+
+          <li><a href="#">Настройки</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Сообщения <span class="badge">1</span></a></li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to "Выйти", destroy_user_session_path, :method => "Delete" %></li>
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <li><%= link_to "Выйти", destroy_admin_session_path, :method => "Delete" %></li>
+      <% end %>
+
+
+    </ul>
+
+  </div>
+</div>
+</header>

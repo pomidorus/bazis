@@ -1,0 +1,14 @@
+<% m = 'users' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<%= link_to "Все users", :controller => "admin/users", :action => 'index' %>
+
+<h1><%= @user.full_name %></h1>
+<p>Role: <%= link_to @user.role.name, :controller => "admin/roles", :action => 'show', :id => @user.role.id  %></p>
+<p>E-mail: <%= @user.email %></p>
+<p>Telephone: <%= @user.telephone %></p>
+<p>Login: <%= @user.username %></p>
+
+
+<h3>Journal deystviy</h3>
+

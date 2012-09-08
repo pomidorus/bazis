@@ -1,0 +1,13 @@
+<% m = 'users' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<h1 style="margin-top: 10px;">Пользователи</h1>
+
+<div style="margin-top: 30px;">
+  <% @users.each do |u| -%>
+    <p><%= link_to u.obr_name, :controller => "admin/users", :action => 'show', :id => u.id %>  <%= u.email %></p>
+  <% end -%>
+</div>
+
+
+<%= link_to "Добавить нового пользователя", "#"  %>
