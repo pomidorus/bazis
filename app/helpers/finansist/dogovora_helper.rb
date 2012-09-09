@@ -1,0 +1,2 @@
+module Finansist::DogovoraHelper
+end

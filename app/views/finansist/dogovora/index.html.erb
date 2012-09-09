@@ -1,0 +1,105 @@
+<% m = 'dogovora' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<section style="margin-left: 20px;">
+
+  <div class="row">
+    <h2 class="span4" style="margin-top: 0px;">Договора аренды</h2>
+    <a class="span3" href="#" style="padding-top: 10px; font-size: 1.2em">Архив</a>
+  </div>
+
+  <section style="margin-top: 25px; margin-left: 5px;">
+
+  <h3>Истекшие <span class="badge">2</span></h3>
+
+    <dogovora>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="color: #DDDDDD; font-size:0.8em">Номер</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Платежи</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Начислено</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Оплачено</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Сальдо</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04364728</a></td>
+            <td style="padding-top:10px;"><a href="#">24 платежа</a></td>
+            <td style="padding-top:10px;">1000 грн</td>
+            <td style="padding-top:10px;">1023 грн</td>
+            <td style="padding-top:10px; color:green">23 грн</td>
+          </tr>
+          <tr>
+            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04362637</a></td>
+            <td style="padding-top:10px;"><a href="#">42 платежа</a></td>
+            <td style="padding-top:10px;">2000 грн</td>
+            <td style="padding-top:10px;">1900 грн</td>
+            <td style="padding-top:10px; color:#ff0000;">-100 грн</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </dogovora>
+
+
+  </section>
+
+
+  <section style="margin-top: 25px; margin-left: 5px;">
+
+  <h3>Действующие <span class="badge">2475</span></h3>
+
+  <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+    <div class="span4" style="height: 80px; background-color: #EEEEEE; padding-top: 15px; padding-left: 20px;">
+       <div>Фильтрация данных:</div>
+       <div style="margin-top: 10px;">
+         <input type="text" style="width: 300px; position: relative; top:5px;" />
+         <button style="width: 35px; height: 27px;">Ok</button>
+       </div>
+    </div>
+  </div>
+
+    <dogovora>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="color: #DDDDDD; font-size:0.8em">Номер</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Осталось</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Платежи</th>
+            <th style="color: #DDDDDD; font-size:0.8em">Сальдо</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04364728</a></td>
+            <td style="padding-top:10px;">
+              <div>2 недели</div>
+              <div style="color: #DDDDDD; font-size: 0.8em;">10 августа</div>
+            </td>
+            <td style="padding-top:10px;"><a href="#">24 платежа</a></td>
+            <td style="padding-top:10px; color:green">23 грн</td>
+          </tr>
+          <% (1..10).each do |n| %>
+          <tr>
+            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04362637</a></td>
+            <td style="padding-top:10px;">
+              <div>1 месяц</div>
+              <div style="color: #DDDDDD; font-size: 0.8em;">23 ноября</div>
+            </td>
+            <td style="padding-top:10px;"><a href="#">42 платежа</a></td>
+            <td style="padding-top:10px; color:#ff0000;">-100 грн</td>
+          </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    </dogovora>
+
+
+  </section>
+
+
+
+</section>

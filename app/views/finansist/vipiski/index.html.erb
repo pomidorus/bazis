@@ -1,0 +1,125 @@
+<% m = 'vipiski' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<section style="margin-left: 20px;">
+  <h2 style="margin-top: 40px;">Выписки</h2>
+
+  <section style="margin-top: 25px; margin-left: 5px;">
+
+  <h3>Новые</h3>
+
+  <vipiska>
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="color: #DDDDDD; font-size:0.8em">Название файла</th>
+          <th style="color: #DDDDDD; font-size:0.8em">Дата добавления</th>
+          <th style="color: #DDDDDD; font-size:0.8em">Платежи</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="plateg_tr">
+          <td style="padding-top:11px;"><a href="vipiski/show">OFU-3007</a></td>
+          <td style="padding-top:11px;">30 июля</td>
+          <td id="plateg_td">
+            <button id="raznos" class="btn" disabled="true">Разнести</button>
+            <a id="nerazn_plat" href="/finance/plategi/vipisk" style="display:none;">14 неразнесенных</a>
+            <a id="razn_plat" href="/finance/plategi/vipisk" style="margin-left:20px; display:none">34 разнесенных</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </vipiska>
+
+  </section>
+
+  <section style="margin-top: 40px; margin-left: 5px;">
+
+  <h3>Архив</h3>
+
+  <nav style="margin-top: 5px;">
+  <ul class="nav nav-pills">
+    <li class="active">
+      <a href="#">Последние</a>
+    </li>
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        За август<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Июль</a></li>
+        <li><a href="#">Июнь</a></li>
+        <li><a href="#">Май</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        За 2012 год<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">2011</a></li>
+        <li><a href="#">2010</a></li>
+        <li><a href="#">2009</a></li>
+      </ul>
+    </li>
+
+  </ul>
+  </nav>
+
+  <vipiska>
+    <table class="table">
+      <thead>
+        <tr style="font-size:0.8em;">
+          <th style="color: #DDDDDD">Название файла</th>
+          <th style="color: #DDDDDD"></th>
+          <th style="color: #DDDDDD"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div>
+              <a href="vipiski/show">OFU-3007</a>
+            </div>
+            <div style="color: #CCCCCC; font-size:0.9em;">
+              30 июля
+            </div>
+          </td>
+          <td>27 платежей</td>
+          <td>4 234 грн</td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <a href="vipiski/show">OFU-2907</a>
+            </div>
+            <div style="color: #CCCCCC; font-size:0.9em;">
+              29 июля
+            </div>
+          </td>
+          <td>34 платежа</td>
+          <td>17 242 грн</td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <a href="vipiski/show">OFU-2807</a>
+            </div>
+            <div style="color: #CCCCCC; font-size:0.9em;">
+              28 июля
+            </div>
+          </td>
+          <td>18 платежей</td>
+          <td>23 000 грн</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </vipiska>
+
+  </section>
+
+</section>

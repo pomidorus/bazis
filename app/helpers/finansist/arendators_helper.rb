@@ -1,0 +1,2 @@
+module Finansist::ArendatorsHelper
+end
