@@ -13,12 +13,32 @@
         </ul>
     <% end %>
 
+    <% if user_signed_in? %>
+      <% if current_user.role.name == "Секретарь" %>
+          <ul class="nav" style="margin-left: 25px;">
+            <%= menu_select('Выписки','vipiski','vipiski') %>
+          </ul>
+      <% end %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <% if current_user.role.name == "Финансист" %>
+        <ul class="nav" style="margin-left: 25px;">
+          <%= menu_select('Выписки',m,'vipiski','finansist') %>
+          <%= menu_select('Платежи',m,'plategi','finansist') %>
+          <%= menu_select('Арендаторы',m,'arendators','finansist') %>
+          <%= menu_select('Договора аренды',m,'dogovora','finansist') %>
+        </ul>
+      <% end %>
+    <% end %>
+
+
     <ul class="nav" style="float: right;">
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
           <% if admin_signed_in? %>
-            Администратор Byaka<b class="caret"></b>
+            Администратор<b class="caret"></b>
           <% end %>
 
           <% if user_signed_in? %>

@@ -5,6 +5,18 @@
   <%= render :partial => "layouts/admindb" %>
 <% end %>
 
+<% if user_signed_in? %>
+  <% if current_user.role.name == "Секретарь" %>
+    <%= render :partial => "layouts/secretardb" %>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.role.name == "Финансист" %>
+    <%= render :partial => "layouts/finansistdb" %>
+  <% end %>
+<% end %>
+
 
 
 

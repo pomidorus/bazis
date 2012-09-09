@@ -1,5 +1,14 @@
 BazisDev1::Application.routes.draw do
 
+  get "dogovora/index"
+  get "dogovora/show"
+  get "arendators/index"
+  get "arendators/show"
+  get "plategi/index"
+  get "plategi/show"
+  get "vipiski/index"
+  get "vipiski/show"
+
   get "roles/index"
   get "roles/show"
   get "dash_board/index"
@@ -21,6 +30,13 @@ BazisDev1::Application.routes.draw do
   namespace :admin do
     resources :users
     resources :roles
+  end
+
+  namespace :finansist do
+    resources :vipiski
+    resources :plategi
+    resources :arendators
+    resources :dogovora
   end
 
 
