@@ -1,5 +1,7 @@
 BazisDev1::Application.routes.draw do
 
+  get "vpfiles/index"
+
   get "dogovora/index"
   get "dogovora/show"
   get "arendators/index"
@@ -38,6 +40,11 @@ BazisDev1::Application.routes.draw do
     resources :arendators
     resources :dogovora
   end
+
+  namespace :secretar do
+    resources :vpfiles
+  end
+
 
 
   root :to => 'dash_board#index'

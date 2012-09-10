@@ -11,12 +11,12 @@
        <section style="padding-left: 10px;">
 
 
-         <%- if resource_name == :user %>
+         <% if resource_name == :user %>
            <%= link_to "Войти как администратор", new_admin_session_path %>
            <header>
              <h2>Вход для пользователя</h2>
            </header>
-         <% end -%>
+         <% end %>
 
          <%- if resource_name == :admin %>
            <%= link_to "Войти как пользователь", new_user_session_path %>
@@ -28,6 +28,8 @@
            <article>
 
              <%- if (not admin_signed_in?) && (not user_signed_in?)  %>
+
+                 <!--TODO: Убрать автозаполнение форм 10.09 -->
 
                  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -83,7 +85,7 @@
     </div>
 
 
-    <footer style="width:90%; position: absolute; bottom: 10px; font-size: 0.9em; border-top-style: dashed; border-top-color: #EEEEEE; border-top-width: 1px;">
+    <footer style="width:90%; position: absolute; bottom: 10px; font-size: 0.9em; border-top-style: dashed; border-top-color: #eeeeee; border-top-width: 1px;">
       <div style="padding-top: 7px;">
         <span>&copy; 2012, <a href="#">БломИнфо-Юкрейн</a></span>
         <span id="ae_link" style="margin-left:30px;">&copy; 2012, <a href="#">Андрей Селезнев</a></span>

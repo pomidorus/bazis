@@ -13,5 +13,12 @@ class DashBoardController < ApplicationController
   end
 
   def index
+
+    if user_signed_in? then
+      if current_user.secretar? then
+        @vpfile = VipiskaFile.all
+      end
+    end
+
   end
 end

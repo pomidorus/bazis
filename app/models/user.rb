@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
@@ -22,6 +24,18 @@ class User < ActiveRecord::Base
 
   def obr_name
     "#{surname} #{name}"
+  end
+
+  def role_name
+    role.name
+  end
+
+  def secretar?
+    if role_name == "Секретарь" then
+      true
+    else
+      false
+    end
   end
 
 end

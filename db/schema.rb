@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908135959) do
+ActiveRecord::Schema.define(:version => 20120909230123) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",               :default => ""
@@ -67,5 +67,13 @@ ActiveRecord::Schema.define(:version => 20120908135959) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  create_table "vipiska_files", :force => true do |t|
+    t.string   "file_name"
+    t.date     "upload_at"
+    t.integer  "download_count"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
 end
