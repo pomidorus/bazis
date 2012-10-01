@@ -29,9 +29,9 @@ User.create!({:username => "e.reznikova", :name => "Екатерина", :surnam
               :role_id => finansist_id, :telephone => "093 856 96 11", :email => "e.reznikova@gmail.com", :password => "testtest", :password_confirmation => "testtest" })
 
 
-VipiskaFile.delete_all
-VipiskaFile.create!({:file_name => "OFU-1009", :upload_at => '2012-10-10', :download_count => 2})
-VipiskaFile.create!({:file_name => "OFU-0809", :upload_at => '2012-10-08', :download_count => 3})
-VipiskaFile.create!({:file_name => "OFU-0709", :upload_at => '2012-10-07', :download_count => 5})
-VipiskaFile.create!({:file_name => "OFU-0609", :upload_at => '2012-10-06', :download_count => 7})
-VipiskaFile.create!({:file_name => "OFU-0509", :upload_at => '2012-10-05', :download_count => 1})
+#VipiskaFile.delete_all
+#VipiskaFile.create!({:file_name => "OFU-1009", :upload_at => '2012-10-10', :download_count => 2})
+#VipiskaFile.create!({:file_name => "OFU-0809", :upload_at => '2012-10-08', :download_count => 3})
+#VipiskaFile.create!({:file_name => "OFU-0709", :upload_at => '2012-10-07', :download_count => 5})
+#VipiskaFile.create!({:file_name => "OFU-0609", :upload_at => '2012-10-06', :download_count => 7})
+#VipiskaFile.create!({:file_name => "OFU-0509", :upload_at => '2012-10-05', :download_count => 1})

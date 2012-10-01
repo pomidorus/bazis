@@ -1,6 +1,9 @@
 BazisDev1::Application.routes.draw do
 
   get "vpfiles/index"
+  post "vpfiles/upload"
+  post "secretar/vpfiles/upload"
+  get "secretar/vpfiles/file"
 
   get "dogovora/index"
   get "dogovora/show"
@@ -41,9 +44,9 @@ BazisDev1::Application.routes.draw do
     resources :dogovora
   end
 
-  namespace :secretar do
-    resources :vpfiles
-  end
+  #namespace :secretar do
+  #  resources :vpfiles
+  #end
 
 
 

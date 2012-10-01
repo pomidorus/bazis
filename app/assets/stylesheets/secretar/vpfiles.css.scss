@@ -1,3 +1,447 @@
 // Place all the styles related to the secretar/vpfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$maincolor: #dc143c;
+$gridspace: 16px;
+
+.ofu-manager {
+
+  header {
+    display: -webkit-box;
+    display: -moz-box;
+    padding: 10px 10px 6px 32px;
+    -webkit-box-align: center;
+    border-bottom: 4px $maincolor solid;
+    -webkit-box-shadow: 0px 4px 20px rgba(252,211,193,0.75);
+    background-color: rgba(129, 16, 37, 0.14);
+  }
+
+  & > header > h1 {
+      font-size: 1.5em;
+  }
+
+  & > header > * {
+  	margin-right: $gridspace;
+  }
+
+  & > header > h1 {
+  	//margin-right: 25px;
+  }
+
+  & > header > .pusto1 {
+   	width: 120px;
+  }
+
+
+  & > header span#add {
+	margin-left: 5px;
+  }
+
+  & .label {
+    position: relative;
+    top: -1px;
+  }
+
+}
+
+
+
+
+.b_info {
+	padding: 0px;
+	margin: 16px;
+	background-color: #f8f5f0;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	margin-top: 32px;
+
+  & > header {
+  	font-size: 1.2em;
+  	padding: 7px;
+  	padding-left: 15px;
+  	color: #f9e6ea;
+  	text-shadow: 0px 0px 5px #a21333;
+  	-webkit-border-radius: 7px 7px 0px 0px;
+  	 background-image: -webkit-linear-gradient(top, #ee333f, #a9112c);
+  }
+
+  //& > div:not(.info) {
+  //	background-color: white;
+  //	padding: 10px;
+  //	margin: 10px 20px;
+  //	border: 1px solid white;
+  //	-webkit-border-radius: 3px;
+  //  -webkit-box-shadow: 2px 2px 0px #dddddd;
+  //	display: -webkit-box;
+  //}
+
+
+  & > div.info {
+ 	padding: 10px;
+ 	margin: 20px;
+ 	background-color: rgba(242, 233, 117, 0.48);
+ 	-webkit-border-radius: 3px;
+ 	border: 1px solid rgb(242, 233, 117);
+ 	color: rgb(81, 77, 39);
+ 	font-size: 0.8em;
+  }
+
+
+  & .flex {
+   -webkit-box-flex: 1;
+}
+
+
+
+  & > div > div {
+  margin-right: 16px;
+}
+
+  & > p {
+	height: 10px;
+}
+
+
+}
+
+
+
+.upload_modal {
+
+  & .modal-body {
+    //height: 100px;
+  }
+
+  & .modal-body p {
+    font-size: 0.75em;
+    padding-left: 3px;
+  }
+
+  & .file_input_cont {
+    margin-top: 16px;
+    padding-left: 5px;
+  }
+
+  & .file_input {
+    visibility: hidden;
+  }
+
+  & #fic_true {
+    display: none;
+  }
+
+  & #file-data-1 {
+    display: none;
+  }
+
+  & #tft-1 {
+    display: none;
+  }
+
+}
+
+
+.select {
+  background-image: -webkit-linear-gradient(top, #eeeeee, #dddddd);
+}
+
+
+.r28files {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+
+  & .r28file {
+    display: -webkit-box;
+
+    background-color: white;
+    padding: 10px;
+    margin: 5px 20px;
+    border: 2px solid white;
+    -webkit-border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 0px #dddddd;
+
+
+
+    & > div {
+      margin-right: $gridspace;
+    }
+
+    & .type {
+      font-size: 0.9em;
+      color: #d2d2d2;
+    }
+
+    & .data {
+      font-size: 0.9em;
+
+      span {
+        color:#cccccc;
+      }
+
+    }
+
+    & .name {
+      font-size: 1.15em;
+      font-weight: normal;
+    }
+
+    & .name span {
+      font-size: 0.7em;
+    }
+
+    & .name span:first-child {
+      margin-right: 8px;
+    }
+
+    & .download {
+      font-size: 0.9em;
+      height: 18px;
+      cursor: pointer;
+      //color: #36F;
+      //border-bottom: 1px dotted #39F;
+      opacity: 0.3;
+
+      & a {
+        background-color: inherit;
+        color: #36F;
+        border-bottom: 1px dotted #39F;
+      }
+
+      & a:hover {
+        color: #C30;
+        border-bottom: 1px dotted #C60;
+        text-decoration: none;
+      }
+
+    }
+
+    & .download:hover {
+      //color: #C30;
+      //border-bottom: 1px dotted #C60;
+    }
+
+    & .download:active {
+      //color: #036;
+      //border-bottom: 1px dotted #C60;
+    }
+
+
+  } //.r28file
+
+} //.r28files
+
+
+a.uplink {
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease;
+}
+
+a.uplink:hover {
+  //background: #33f;
+  //opacity: 0;
+}
+
+a.disapear {
+  opacity: 0;
+}
+
+.dis {
+  display: none;
+}
+
+
+
+    body {
+        min-width: 1000px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+
+    #vipiskaHeader {
+    	display: -webkit-box;
+    	padding: 23px;
+    	padding-left: 16px;
+    	-webkit-box-align: center;
+    }
+
+    .blackbox {
+    	background-color: black;
+    	color: white;
+    	margin-left: 16px;
+    }
+
+    .pusto1 {
+    	width: 80px;
+        margin: 0 20px;
+    }
+
+    .ml {
+    	margin-left: 16px;
+    }
+
+
+    .krasota {
+        border-bottom: 4px #dc143c solid;
+        -webkit-box-shadow: 0px 4px 20px rgba(252,211,193,0.75);
+        z-index: 1;
+        /*background-image: -webkit-linear-gradient(white, black);*/
+        background-color: rgba(129, 16, 37, 0.14);
+        ;
+    }
+
+    .label {
+        background-color: #dc143c;
+    }
+
+    #content {
+        display: -webkit-box;
+        margin-left: 32px;
+    }
+
+    #a_left {
+      width:576px;
+      padding-right: 16px;
+    }
+
+    #b_info {
+        //height:16px;
+        padding: 16px;
+        /*width: 240px;*/
+        text-align:center;
+        background-color: rgba(242, 233, 117, 0.48);
+        -webkit-border-radius: 10px;
+        border: 1px solid rgb(242, 233, 117);
+        color: rgb(81, 77, 39);
+        margin-top: 32px;
+    }
+
+
+    th {
+        color: #d7d7d7;
+        font-weight: normal;
+        font-size: 0.8em;
+    }
+
+    #a_right{
+        padding-left: 16px;
+        padding-top: 16px;
+
+    }
+
+    .td_data {
+        font-size: 0.9em;
+    }
+
+    .td_file_prop {
+        font-size: 0.7em;
+    }
+
+    .td_user {
+        font-size: 0.9em;
+    }
+
+    .td_download {
+        font-size: 0.9em;
+    }
+
+    .bbox {
+        width: 12px;
+        height: 16px;
+        background-color: #000000;
+        margin-right: 1px;
+    }
+
+    .pusto {
+        background-color: #eeeeee;
+    }
+
+    .b_vbox {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+
+    .b_hbox {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+    }
+
+    li {
+        display: inline;
+        margin-right: 8px;
+    }
+
+    ul {
+        margin: 0px;
+    }
+
+    li a {
+        color: #5f9ea0;
+    }
+
+    #b_history {
+        margin-top: 32px;
+    }
+
+    .flex {
+        -webkit-box-flex: 1;
+    }
+
+    table {
+        margin-top: 16px;
+    }
+
+    #b_myfiles {
+        margin-top: 16px;
+        border: 1px solid #dddddd;
+        padding: 5px 10px;
+        -webkit-border-radius: 9px;
+        -webkit-box-shadow: 3px 3px 0px #dddddd;
+    }
+
+    .b_link {
+        border-bottom: 1px solid #e3e3e3;
+        tabindex: "-1";
+        position: relative;
+        left: -216px;
+        cursor: pointer;
+
+    }
+
+    .b_link:hover {
+      color: #dc143c;
+      background-color: white;
+      text-decoration: none;
+    }
+
+
+
+    .b_link_border {
+      border-bottom: 1px solid #e3e3e3;
+    }
+
+    #fileR28 {
+      background-color: #cfcfcf;
+      margin-top: 10px;
+      padding: 32px;
+      width: 150px;
+    }
+
+    #b_gotovo {
+      display: block;
+    }
+
+    #fileR28Name {
+      font-size: 1.5em;
+      padding: 7px;
+      padding-left: 0px;
+    }
+
+    #fileR28Data {
+      margin-top: 8px;
+    }
+

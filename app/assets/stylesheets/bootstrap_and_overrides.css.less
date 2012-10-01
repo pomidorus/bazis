@@ -2,7 +2,10 @@
 body { 
   padding-top: 0px;
   padding-left: 0px;
-  padding-right: 0px;
+  min-width: 1200px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 @import "twitter/bootstrap/responsive";
@@ -10,6 +13,39 @@ body {
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url('/assets/twitter/bootstrap/glyphicons-halflings.png');
+//  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+[class^="icon-"]:last-child,
+[class*=" icon-"]:last-child {
+  *margin-left: 0;
+}
+[class^="icon-"]:last-child,
+[class*=" icon-"]:last-child {
+  *margin-left: 0;
+}
+.icon-white {
+  background-image: url("/assets/twitter/bootstrap/glyphicons-halflings-white.png");
+}
+
+.navbar {
+  overflow: visible;
+  margin-bottom: 0px;
+  color: #555555;
+  *position: relative;
+  *z-index: 2;
+}
 
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
 // Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
