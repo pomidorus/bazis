@@ -70,10 +70,14 @@ ActiveRecord::Schema.define(:version => 20120909230123) do
 
   create_table "vipiska_files", :force => true do |t|
     t.string   "file_name"
-    t.date     "upload_at"
-    t.integer  "download_count"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "file_size"
+    t.date     "file_for_data"
+    t.integer  "files_count_in", :default => 0
+    t.string   "download_count", :default => "0"
+    t.date     "upload_at",      :default => '2012-10-01'
+    t.integer  "user_id",        :default => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
 end
