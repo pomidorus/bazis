@@ -25,8 +25,16 @@ class VipiskaFile < ActiveRecord::Base
     "#{upload_at.day} #{upload_at.month_to_word} #{upload_at.year}"
   end
 
+  def file_upload_data_small
+    "#{upload_at.day}.#{upload_at.month}.#{upload_at.year}"
+  end
+
   def file_data
     "#{file_for_data.day} #{file_for_data.month_to_word} <span>#{file_for_data.year}</span>"
+  end
+
+  def file_data_small
+    "#{file_for_data.day}.#{file_for_data.month}.#{file_for_data.year}"
   end
 
 

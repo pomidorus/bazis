@@ -16,8 +16,6 @@ class DashBoardController < ApplicationController
 
     if user_signed_in? then
       if current_user.secretar? then
-        #@vpfile = VipiskaFile.all
-        #@vipiskafile = VipiskaFile.new
 
         #количество файлов
         vpfile= VipiskaFile.all
@@ -26,6 +24,10 @@ class DashBoardController < ApplicationController
         #добавленные сегодня файлы
         @vpfile_today= VipiskaFile.find_all_by_upload_at Date.today, :order => "created_at desc"
         @vpfile_today_count= @vpfile_today.count
+
+        #not today
+        @vpfile_last= VipiskaFile.where("upload_at < :date", :date => Date.today)
+        @vpfile_last_count= @vpfile_last.count
       end
     end
 

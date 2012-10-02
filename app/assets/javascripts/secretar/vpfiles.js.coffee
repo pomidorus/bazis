@@ -1,6 +1,7 @@
 
 uploadFile = (evt) ->
   $('#file_input_id').trigger("click")
+  console.log('click')
   evt.preventDefault()
 
 uploadChange = (evt) ->
@@ -44,9 +45,9 @@ cancelUpload = (evt) ->
 
 selectR28File = (evt) ->
   $(this).children('.download').css('opacity','1')
-#  $(this).css('border','2px solid yellow')
   $(this).addClass('select')
   console.log($(this))
+
 
 unselectR28File = (evt) ->
   $(this).children('.download').css('opacity','0.3')
@@ -54,24 +55,20 @@ unselectR28File = (evt) ->
 
 
 test = (evt) ->
-  alert 'fuck'
-
+  alert 'f'
 
 jQuery ->
-  $('#upload_file_link').bind('click',uploadFile)
-  $('#file_input_id').change(uploadChange)
+  $('#upload_file_link').bind('click', uploadFile)
+  $('#file_input_id').bind('change', uploadChange)
   $('#b_cancel_link').click(cancelUpload)
   $('.r28file').mouseenter(selectR28File)
   $('.r28file').mouseleave(unselectR28File)
-
 
 
 #  $('#file_input_id').click(test)
 #  $('input[name$="file_r28"]').bind('change',uploadFileR28)
 #  $('#upload_vipiska').bind('click',uploadVipiskaClick)
 #  $('#cancel_upload').bind('click',cancelUploadClick)
-
-
 
 #class Arbiter
 #  constructor: ->

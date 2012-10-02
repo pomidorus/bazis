@@ -10,7 +10,7 @@ module Secretar::VpfilesHelper
       r = ""
       c = 1
       @vpfile_today.each do |f|
-       link = link_to "Загрузить", :controller => 'file', :action => 'show', :id => f.id
+       link = link_to "Загрузить", :controller => 'secretar/vpfiles', :action => 'file', :id => f.id
        r += "
                  <div id='r28file_#{c}' class='r28file' data-id='#{f.id}'>
                    <div class='type'>#{f.file_ext}</div>
