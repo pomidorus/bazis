@@ -38,4 +38,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def finansist?
+    if role_name == "Финансист" then
+      true
+    else
+      false
+    end
+  end
+
+
+
 end

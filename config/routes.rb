@@ -1,9 +1,12 @@
 BazisDev1::Application.routes.draw do
 
+  get "vpfiles/upload"
   get "vpfiles/index"
   post "vpfiles/upload"
   post "secretar/vpfiles/upload"
   get "secretar/vpfiles/file"
+  post "finansist/vpfiles/upload"
+  get "finansist/vpfiles/file"
 
   get "dogovora/index"
   get "dogovora/show"
@@ -17,10 +20,6 @@ BazisDev1::Application.routes.draw do
   get "roles/index"
   get "roles/show"
   get "dash_board/index"
-
-  #get "users/index"
-  #get "users/show"
-  #get "users/edit"
 
   devise_for :admins, path_names: {sign_in: "login"}
   devise_for :users, path_names: {sign_in: "login"}
@@ -38,6 +37,7 @@ BazisDev1::Application.routes.draw do
   end
 
   namespace :finansist do
+    resources :vpfiles
     resources :vipiski
     resources :plategi
     resources :arendators

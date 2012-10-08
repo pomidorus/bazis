@@ -24,6 +24,7 @@
     <% if user_signed_in? %>
       <% if current_user.role.name == "Финансист" %>
         <ul class="nav">
+          <%= menu_select('Файлы выписок',m,'vpfiles','finansist') %>
           <%= menu_select('Выписки',m,'vipiski','finansist') %>
           <%= menu_select('Платежи',m,'plategi','finansist') %>
           <%= menu_select('Арендаторы',m,'arendators','finansist') %>

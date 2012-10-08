@@ -15,21 +15,25 @@ class DashBoardController < ApplicationController
   def index
 
     if user_signed_in? then
-      if current_user.secretar? then
 
+      # Секретарь и Финансист
+      if current_user.secretar?  then
         #количество файлов
-        vpfile= VipiskaFile.all
-        @vpfile_count = vpfile.count
+        vpfile ||= VipiskaFile.all
+        @vpfile_count ||= vpfile.count
 
         #добавленные сегодня файлы
-        @vpfile_today= VipiskaFile.find_all_by_upload_at Date.today, :order => "created_at desc"
-        @vpfile_today_count= @vpfile_today.count
+        @vpfile_today ||= VipiskaFile.today_vp
+        @vpfile_today_count ||= @vpfile_today.count
 
-        #not today
-        @vpfile_last= VipiskaFile.where("upload_at < :date", :date => Date.today)
-        @vpfile_last_count= @vpfile_last.count
+        #добавленные не сегодня файлы
+        @vpfile_last ||= VipiskaFile.last_vp
+        @vpfile_last_count ||= @vpfile_last.count
       end
+
     end
 
   end
 end
+
+

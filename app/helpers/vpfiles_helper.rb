@@ -1,6 +1,6 @@
 #encoding:utf-8
 
-module Secretar::VpfilesHelper
+module VpfilesHelper
 
   def r28file_add_today(r28files_today)
     c = r28files_today.count
