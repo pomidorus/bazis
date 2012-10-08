@@ -1,0 +1,2 @@
+module Finansist::VpfilesHelper
+end

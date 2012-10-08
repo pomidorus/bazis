@@ -47,6 +47,9 @@ class VipiskaFile < ActiveRecord::Base
 
 
   def self.upload(file, file_data)
+
+    #TODO: Возможность загрузки файлов 004
+
     logger.debug "New file: #{file.inspect} #{file_data.inspect}"
 
     vpfile = self.new
