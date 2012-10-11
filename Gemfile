@@ -13,3 +13,4 @@ end
 gem 'jquery-rails'
 gem 'passenger'
 gem 'devise'
+gem 'haml-rails'

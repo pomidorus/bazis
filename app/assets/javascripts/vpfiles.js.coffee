@@ -50,9 +50,20 @@ unselectR28File = (evt) ->
 test = (evt) ->
   alert 'f'
 
+
+appVpfiles =
+
+  test: =>
+    alert 'foo'
+
+  init: =>
+    $('#upload_file_link').bind('click', uploadFile)
+    $('#file_input_id').bind('change', uploadChange)
+    $('#b_cancel_link').click(cancelUpload)
+    $('.r28file').mouseenter(selectR28File)
+    $('.r28file').mouseleave(unselectR28File)
+
+
 jQuery ->
-  $('#upload_file_link').bind('click', uploadFile)
-  $('#file_input_id').bind('change', uploadChange)
-  $('#b_cancel_link').click(cancelUpload)
-  $('.r28file').mouseenter(selectR28File)
-  $('.r28file').mouseleave(unselectR28File)
+  appVpfiles.init()
+

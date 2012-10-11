@@ -1,0 +1,67 @@
+%div#b_history
+  %div.b_hbox
+    %h4
+      История добавлений&nbsp;&nbsp;
+      = today_count(@vpfile_last_count).html_safe
+
+
+-#<div id="b_history">
+-#
+-#<div class="b_hbox">
+-#<h4>История добавлений&nbsp;&nbsp;<%= today_count(@vpfile_last_count).html_safe %></h4>
+-#<div class="flex"></div>
+-#<!--<div>Last &darr;</div>-->
+-#</div>
+-#
+-#<!--nav style="padding: 5px; margin-top: 5px;">
+-#<ul>
+-#<li><span style="color: #333333; background-color: #eeeeee; padding: 4px;" >2012</span>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">2011</a>&nbsp;<span style="color:#666666">5</span></li>
+-#</ul>
+-#</nav>
+-#
+-#
+-#<nav style="padding: 5px; margin-top: 5px;">
+-#<ul>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Август</a>&nbsp;<span style="color:#666666">5</span></li>
+-#<li style="color: #aaaaaa;">Июль</li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Июнь</a>&nbsp;<span style="color:#666666">14</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#<li><a style="color: #5f9ea0; border-bottom: 1px solid; #5f9ea0" href="#">Сентябрь</a>&nbsp;<span style="color:#666666">3</span></li>
+-#</ul>
+-#</nav-->
+-#
+-#
+-#<table class="table">
+-#<thead>
+-#<tr>
+-#<th scope="col">Дата&nbsp;</th>
+-#<th scope="col">Файл&nbsp;</th>
+-#<th scope="col">Кто добавил&nbsp;</th>
+-#<th scope="col">&nbsp;</th>
+-#</tr>
+-#</thead>
+-#<tbody>
+-#<% @vpfile_last.each do |f| %>
+-#<tr>
+-#<td class="td_data"><%= f.file_upload_data_small %></td>
+-#<td>
+-#<div><%= f.file_name_ex %></div>
+-#<div class="td_file_prop"><%= f.files_count_in %> файлов  <%= f.file_size %>  <%= f.file_data.html_safe %></div>
+-#</td>
+-#<td class="td_user"><a href="#">Андрей Селезнев</a></td>
+-#<td class="td_download"><%= link_to "Загрузить", :controller => 'secretar/vpfiles', :action => 'file', :id => f.id %></td>
+-#</tr>
+-#<% end %>
+-#</tbody>
+-#</table>
+-#
+-#</div>

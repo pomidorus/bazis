@@ -1,0 +1,18 @@
+-#<!-- Шапка -->
+= render :partial => "layouts/vpfiles/header"
+
+-#<!-- Тело -->
+%section#content
+  %article.b_vbox#a_left
+    -#<!-- Файлы добавленные сегодня -->
+    = render :partial => "layouts/vpfiles/today"
+    -#<!-- Файлы добавленные вчера -->
+    = render :partial => "layouts/vpfiles/history"
+
+  %aside#a_right
+    -#<!-- Календарь добавленных файлов -->
+    = render :partial => "layouts/vpfiles/calendar"
+
+-#<!-- Диалоговое окно -->
+= render :partial => "layouts/vpfiles/uploadDlg"
+
