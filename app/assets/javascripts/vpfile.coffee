@@ -8,6 +8,10 @@ window.VpFile = class VpFile
   parseData: (fileName) ->
     fileName
 
+  extention: ->
+    name = @name
+
+
 #    @day = fileName.substr(4,2)
 #    @month = fileName.substr(6,2)
 #    month_arr = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря']

@@ -31,7 +31,7 @@ class VipiskaFile < ActiveRecord::Base
 
   def file_data
     if !file_for_data.nil?
-      "#{file_for_data.day} #{file_for_data.month_to_word} <span>#{file_for_data.year}</span>"
+      "#{file_for_data.day} #{file_for_data.month_to_word} #{file_for_data.year}"
     elsif
       ""
     end

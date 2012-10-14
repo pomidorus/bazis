@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013181746) do
+ActiveRecord::Schema.define(:version => 20121014191859) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",               :default => ""
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20121013181746) do
   end
 
   add_index "people", ["edrpou"], :name => "index_people_on_edrpou", :unique => true
+
+  create_table "rahunoks", :force => true do |t|
+    t.string   "number"
+    t.string   "code"
+    t.integer  "vipiska_file_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

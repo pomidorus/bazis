@@ -10,7 +10,7 @@ module VpfilesHelper
       r = ""
       c = 1
       @vpfile_today.each do |f|
-       link = link_to "Загрузить", :controller => '/file', :action => 'file', :id => f.id
+       link = link_to f.file_name, :controller => '/file', :action => 'file', :id => f.id
        r += render :partial => "layouts/vpfiles/file", :locals => {:f => f, :c => c, :link => link}
        c += 1
       end

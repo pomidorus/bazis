@@ -16,40 +16,6 @@ uploadChange = (evt) ->
   appVpfiles.showFileInfo()
 
 
-#  file_data = $('#tft-1')
-#  file_day = $('#fday')
-#  file_month = $('#fmonth')
-#  file_data.val('2012-10-10')
-#  file_day.text('12')
-#  file_month.text('марта')
-#
-
-
-#  file_day = $('#fday')
-#  file_month = $('#fmonth')
-#
-#  $('#fic').css('display','none')
-#  $('#fic_true').css('display','block')
-#  $('#b_gotovo').css('display','block')
-#
-#  file = evt.target.files
-#  fileName = file[0].name
-#
-#  $('#fileR28Name').text(fileName)
-#  day = fileName.substr(4,2)
-#  month = fileName.substr(6,2)
-#  month_arr = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря']
-#
-#  if month[0] is '0'
-#    month = month[1]
-#
-#  month_s = month_arr[month]
-#  file_day.text(day)
-#  file_month.text(month_s)
-#  data_f = "2012-" + month + "-" + day
-#  file_data.val(data_f)
-
-
 cancelUpload = (evt) ->
   appVpfiles.hideFileInfo()
 
@@ -95,3 +61,39 @@ appVpfiles =
 jQuery ->
   appVpfiles.init()
 
+
+
+
+
+#  file_data = $('#tft-1')
+#  file_day = $('#fday')
+#  file_month = $('#fmonth')
+#  file_data.val('2012-10-10')
+#  file_day.text('12')
+#  file_month.text('марта')
+#
+
+
+#  file_day = $('#fday')
+#  file_month = $('#fmonth')
+#
+#  $('#fic').css('display','none')
+#  $('#fic_true').css('display','block')
+#  $('#b_gotovo').css('display','block')
+#
+#  file = evt.target.files
+#  fileName = file[0].name
+#
+#  $('#fileR28Name').text(fileName)
+#  day = fileName.substr(4,2)
+#  month = fileName.substr(6,2)
+#  month_arr = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря']
+#
+#  if month[0] is '0'
+#    month = month[1]
+#
+#  month_s = month_arr[month]
+#  file_day.text(day)
+#  file_month.text(month_s)
+#  data_f = "2012-" + month + "-" + day
+#  file_data.val(data_f)

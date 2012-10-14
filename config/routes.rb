@@ -35,6 +35,7 @@ BazisDev1::Application.routes.draw do
   match "admin/users/:id" => "admin/users#show"
 
   match 'files', :to => 'finansist/vpfiles#index'
+  match 'plategi', :to => 'finansist/plategi#index'
   #match 'files/:id', :to => 'files#file'
 
   namespace :admin do
