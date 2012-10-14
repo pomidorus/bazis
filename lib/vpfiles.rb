@@ -63,7 +63,7 @@ module VP
                                    :file_size => get_file_size(@file)})
       vpfile.save!
 
-      pwd = Dir.pwd
+      #pwd = Dir.pwd
       vpfile.create_dir_004
       fne = vpfile.file_name_ex
 
@@ -99,9 +99,140 @@ module VP
         rahunok.save!
       end
 
-      Dir.chdir(pwd)
+      #Платежи по нужным кодам 13050*
+      collect_plategi_004
+
+      #Dir.chdir(pwd)
 
     end
+
+
+    RAHUNOK_START = /Рахунок:/u
+    RAHUNOK_PATTERN = /\b[0-9]+\b/um
+    PLATEG_START = /\b(?:A|R|B)..\b/um
+    PLATEG_END = /^---/u
+    SUMMA_PATT = /\s+(\b[0-9]+\.[0-9]+\b)/u
+    BANK_PATT = /...\s+[0-9]{8}\s+([0-9]{6})/u
+    FIZ_PATT = /^(\d{10})/u
+    UR_PATT = /^(\d{8})/u
+    FIZC_PATT = /;(\d{10})/u
+    URC_PATT = /(\d{8})/u
+
+
+    def self.collect_plategi_004
+
+      section = []
+      plateg = ""
+
+      File.foreach(@vp004_utf8_filename) do |line|
+        case line
+          when RAHUNOK_START
+            collect_rahunok(line)
+          when PLATEG_START
+            if !@acc2.nil?
+              section.pop
+              section.push "Plateg"
+            end
+          when PLATEG_END
+            if section == ["Plateg"] && !@acc2.nil?
+              collect_plateg(plateg)
+              plateg = ""
+              section.pop
+              section.push "Plateg_end"
+            end
+        end
+
+        case section
+          when ["Plateg"]
+            plateg << line
+          when ["Plateg_end"]
+        end
+
+      end
+
+    end
+
+
+    def self.collect_plateg(plateg)
+
+      @summa, @bank, @platnik, @platnik_c = nil, nil, nil, nil
+      p = plateg.split("\n")
+
+      collect_summa(p[0])
+      collect_bank(p[0])
+      collect_platnik(p[2])
+
+      comment = ""
+
+      p.each_index do |pp|
+        if pp > 3
+          comment << p[pp]
+        end
+      end
+
+      collect_comment(comment)
+
+
+      plateg = Plateg.new
+      plateg.acc1= @acc1
+      plateg.acc2= @acc2
+      plateg.summa= @summa
+      plateg.bank= @bank
+      plateg.platnik= @platnik
+      plateg.platnik_c= @platnik_c
+      plateg.comment= comment
+      plateg.save!
+
+    end
+
+
+    def self.collect_comment(line)
+
+      a = line.scan(FIZC_PATT)
+      aa = a[0]
+      a = line.scan(URC_PATT)
+      bb = a[0]
+
+      @platnik_c = bb if !bb.nil?
+      @platnik_c = aa if !aa.nil?
+
+    end
+
+
+    def self.collect_summa(line)
+      #a = line.scan(SUMMA_PATT)
+      a = SUMMA_PATT.match(line)
+      aa = a[1]
+      @summa = "#{aa}" if !aa.nil?
+      #@summa = '12.03'
+    end
+
+    def self.collect_bank(line)
+      a = line.scan(BANK_PATT)
+      aa = a[0]
+      @bank = aa
+    end
+
+    def self.collect_platnik(line)
+      a = line.scan(FIZ_PATT)
+      aa = a[0]
+      a = line.scan(UR_PATT)
+      bb = a[0]
+
+      @platnik = aa if !aa.nil?
+      @platnik = bb if !bb.nil?
+    end
+
+
+    def self.collect_rahunok(line)
+      a = line.scan(RAHUNOK_PATTERN)
+      aa = a[0]
+      @acc1 = aa
+      aa = a[1]
+      @acc2 = aa
+    end
+
+
 
     RAHUNOK_START = /Рахунок:/u
     RAHUNOK_PATTERN = /\b[0-9]+\b/um

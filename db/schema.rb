@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014191859) do
+ActiveRecord::Schema.define(:version => 20121014221149) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",               :default => ""
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(:version => 20121014191859) do
   end
 
   add_index "people", ["edrpou"], :name => "index_people_on_edrpou", :unique => true
+
+  create_table "plategs", :force => true do |t|
+    t.string   "acc1"
+    t.string   "acc2"
+    t.string   "summa"
+    t.string   "bank"
+    t.string   "platnik"
+    t.string   "platnik_c"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rahunoks", :force => true do |t|
     t.string   "number"
