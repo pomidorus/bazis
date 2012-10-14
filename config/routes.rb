@@ -1,12 +1,15 @@
 BazisDev1::Application.routes.draw do
 
-  get "vpfiles/upload"
-  get "vpfiles/index"
-  post "vpfiles/upload"
-  post "secretar/vpfiles/upload"
-  get "secretar/vpfiles/file"
-  post "finansist/vpfiles/upload"
-  get "finansist/vpfiles/file"
+  post "file/upload"
+  get "file/file"
+
+  #get "vpfiles/upload"
+  #get "vpfiles/index"
+  #post "vpfiles/upload"
+  #post "secretar/vpfiles/upload"
+  #get "secretar/vpfiles/file"
+  #post "finansist/vpfiles/upload"
+  #get "finansist/vpfiles/file"
 
   get "dogovora/index"
   get "dogovora/show"
@@ -31,13 +34,16 @@ BazisDev1::Application.routes.draw do
   match "admin/roles/:id" => "admin/roles#show"
   match "admin/users/:id" => "admin/users#show"
 
+  match 'files', :to => 'finansist/vpfiles#index'
+  #match 'files/:id', :to => 'files#file'
+
   namespace :admin do
     resources :users
     resources :roles
   end
 
   namespace :finansist do
-    resources :vpfiles
+    #resources :vpfiles
     resources :vipiski
     resources :plategi
     resources :arendators
@@ -47,8 +53,6 @@ BazisDev1::Application.routes.draw do
   #namespace :secretar do
   #  resources :vpfiles
   #end
-
-
 
   root :to => 'dash_board#index'
 end

@@ -1,0 +1,18 @@
+
+%div{:class => "r28file", :id => "r28file_#{c}", "data-id" => "#{f.id}"}
+  .type
+    = f.file_ext
+  .name
+    %div
+      = f.file_name_ex
+    %div
+      %span
+        = "#{f.files_count_in} файлов"
+      %span
+        = f.file_size
+  .data
+    = f.file_data
+  .flex
+  .download
+    = link
+

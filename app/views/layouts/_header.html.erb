@@ -14,17 +14,18 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <% if current_user.role.name == "Секретарь" %>
-          <ul class="nav">
-            <%= menu_select('Выписки','vipiski','vipiski') %>
-          </ul>
+      <% if current_user.secretar? %>
+          <!--ul class="nav">
+            <li><%= link_to "Файлы", files_path %></li>
+          </ul-->
       <% end %>
     <% end %>
 
     <% if user_signed_in? %>
-      <% if current_user.role.name == "Финансист" %>
+      <!--% if current_user.role.name == "Финансист" %-->
+      <% if current_user.finansist? %>
         <ul class="nav">
-          <%= menu_select('Файлы выписок',m,'vpfiles','finansist') %>
+          <li><%= link_to "Файлы", files_path %></li>
           <%= menu_select('Выписки',m,'vipiski','finansist') %>
           <%= menu_select('Платежи',m,'plategi','finansist') %>
           <%= menu_select('Арендаторы',m,'arendators','finansist') %>
