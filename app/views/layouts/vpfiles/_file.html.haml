@@ -12,7 +12,8 @@
     -#  %span
     -#    = f.file_size
   .data
-    = link_to "Платежи", plategi_path
+    -#= link_to "Платежи", plategi_path, :id => f.id
+    = link_to "Платежи", "plategi/#{f.id}"
   .flex
   .download
     = link

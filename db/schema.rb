@@ -45,8 +45,7 @@ ActiveRecord::Schema.define(:version => 20121014221149) do
   add_index "people", ["edrpou"], :name => "index_people_on_edrpou", :unique => true
 
   create_table "plategs", :force => true do |t|
-    t.string   "acc1"
-    t.string   "acc2"
+    t.integer  "rahunok_id"
     t.string   "summa"
     t.string   "bank"
     t.string   "platnik"

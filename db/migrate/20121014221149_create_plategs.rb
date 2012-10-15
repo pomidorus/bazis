@@ -1,8 +1,9 @@
 class CreatePlategs < ActiveRecord::Migration
   def change
     create_table :plategs do |t|
-      t.string :acc1
-      t.string :acc2
+      t.integer :rahunok_id
+      #t.string :acc1
+      #t.string :acc2
       t.string :summa
       t.string :bank
       t.string :platnik

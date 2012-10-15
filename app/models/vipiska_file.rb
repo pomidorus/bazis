@@ -3,6 +3,20 @@
 class VipiskaFile < ActiveRecord::Base
   attr_accessible :download_count, :file_name, :upload_at, :file_size, :file_for_data
 
+  M_RUS_SHORT = ['','янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек']
+
+  def month_short
+    M_RUS_SHORT[file_for_data.month]
+  end
+
+  def year
+    "#{file_for_data.year}"
+  end
+
+  def day
+    "#{file_for_data.day}"
+  end
+
   def date_ukr
     y = upload_at.year
     m = upload_at.month

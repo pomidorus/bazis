@@ -71,6 +71,7 @@ module VP
       File.open(@file_name, 'wb') {|f| f.write(@file.read)}
       file_004_to_utf(fne)
 
+      #Дата выписки
       File.foreach(@vp004_utf8_filename) do |line|
         case line
           when ACCOUNT_START
@@ -92,20 +93,22 @@ module VP
       #Нужно пройти по файлу выписок и собрать счета в один массив
       a1, a2 = collect_accounts_004
       a1.each_index do |a|
-        rahunok = Rahunok.new
-        rahunok.number= a1[a]
-        rahunok.code= a2[a]
-        rahunok.vipiska_file_id= vpfile.id
-        rahunok.save!
+        @acc2 = a2[a]
+        if valid_acc2?
+          rahunok = Rahunok.new
+          rahunok.number= a1[a]
+          rahunok.code= a2[a]
+          rahunok.vipiska_file_id= vpfile.id
+          rahunok.save!
+        end
       end
 
       #Платежи по нужным кодам 13050*
-      collect_plategi_004
+      collect_plategi_004(vpfile.id)
 
       #Dir.chdir(pwd)
 
     end
-
 
     RAHUNOK_START = /Рахунок:/u
     RAHUNOK_PATTERN = /\b[0-9]+\b/um
@@ -119,7 +122,7 @@ module VP
     URC_PATT = /(\d{8})/u
 
 
-    def self.collect_plategi_004
+    def self.collect_plategi_004(id)
 
       section = []
       plateg = ""
@@ -135,7 +138,9 @@ module VP
             end
           when PLATEG_END
             if section == ["Plateg"] && !@acc2.nil?
-              collect_plateg(plateg)
+              if valid_acc2?
+                collect_plateg(plateg,id)
+              end
               plateg = ""
               section.pop
               section.push "Plateg_end"
@@ -153,7 +158,17 @@ module VP
     end
 
 
-    def self.collect_plateg(plateg)
+    def self.valid_acc2?
+      if @acc2 == "13050200" || @acc2 == "13050100" || @acc2 == "13050300" || @acc2 == "13050500"
+        true
+      else
+        false
+      end
+
+    end
+
+
+    def self.collect_plateg(plateg, id)
 
       @summa, @bank, @platnik, @platnik_c = nil, nil, nil, nil
       p = plateg.split("\n")
@@ -172,10 +187,8 @@ module VP
 
       collect_comment(comment)
 
-
       plateg = Plateg.new
-      plateg.acc1= @acc1
-      plateg.acc2= @acc2
+      plateg.rahunok_id= find_rahunok_id(id, @acc1)
       plateg.summa= @summa
       plateg.bank= @bank
       plateg.platnik= @platnik
@@ -186,41 +199,55 @@ module VP
     end
 
 
+    def self.find_rahunok_id(id, acc1)
+      w = Rahunok.where("number = :number AND vipiska_file_id = :vpid", :number => acc1, :vpid => id).first
+      w.id
+    end
+
+
     def self.collect_comment(line)
 
-      a = line.scan(FIZC_PATT)
-      aa = a[0]
-      a = line.scan(URC_PATT)
-      bb = a[0]
+      b = URC_PATT.match(line)
+      if !b.nil?
+        bb = b[1]
+        @platnik_c = "#{bb}" if !bb.nil?
+      end
 
-      @platnik_c = bb if !bb.nil?
-      @platnik_c = aa if !aa.nil?
+      a = FIZC_PATT.match(line)
+      if !a.nil?
+        aa = a[1]
+        @platnik_c = "#{aa}" if !aa.nil?
+      end
 
     end
 
 
     def self.collect_summa(line)
-      #a = line.scan(SUMMA_PATT)
       a = SUMMA_PATT.match(line)
       aa = a[1]
       @summa = "#{aa}" if !aa.nil?
-      #@summa = '12.03'
     end
 
     def self.collect_bank(line)
-      a = line.scan(BANK_PATT)
-      aa = a[0]
-      @bank = aa
+      a = BANK_PATT.match(line)
+      aa = a[1]
+      @bank = "#{aa}" if !aa.nil?
     end
 
     def self.collect_platnik(line)
-      a = line.scan(FIZ_PATT)
-      aa = a[0]
-      a = line.scan(UR_PATT)
-      bb = a[0]
 
-      @platnik = aa if !aa.nil?
-      @platnik = bb if !bb.nil?
+      a = FIZ_PATT.match(line)
+      if !a.nil?
+        aa = a[1]
+        @platnik = "#{aa}"
+      end
+
+      b = UR_PATT.match(line)
+      if !b.nil?
+        bb = b[1]
+        @platnik = "#{bb}"
+      end
+
     end
 
 
@@ -233,9 +260,6 @@ module VP
     end
 
 
-
-    RAHUNOK_START = /Рахунок:/u
-    RAHUNOK_PATTERN = /\b[0-9]+\b/um
 
     def self.collect_accounts_004
 

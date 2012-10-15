@@ -43,3 +43,6 @@ VipiskaFile.delete_all
 
 #Person.delete_all
 #parsePersonFile(PERSON_FILE)
+
+Rahunok.delete_all
+Plateg.delete_all
