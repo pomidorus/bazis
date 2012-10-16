@@ -5,14 +5,7 @@
   .name
     %div
       = f.file_data
-      -#= f.file_name_ex
-    -#%div
-    -#  %span
-    -#    = "#{f.files_count_in} файлов"
-    -#  %span
-    -#    = f.file_size
   .data
-    -#= link_to "Платежи", plategi_path, :id => f.id
     = link_to "Платежи", "plategi/#{f.id}"
   .flex
   .download

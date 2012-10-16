@@ -1,30 +1,30 @@
 #encoding: utf-8
 
 class Finansist::VpfilesController < ApplicationController
+  before_filter :do_authentication, :loadModule
+  include Dashboard
+
+  def loadModule
+    load "#{Rails.root}/lib/dashboard.rb"
+  end
+
+  def do_authentication
+    if not admin_signed_in? then
+      authenticate_user!
+    end
+    if not user_signed_in? then
+      authenticate_admin!
+    end
+  end
 
   def index
-    #количество файлов
-    vpfile ||= VipiskaFile.all
-    @vpfile_count ||= vpfile.count
-    #добавленные сегодня файлы
-    @vpfile_today ||= VP::Files.today_vp
-    @vpfile_today_count ||= @vpfile_today.count
-    #добавленные не сегодня файлы
-    @vpfile_last ||= VP::Files.last_vp
-    @vpfile_last_count ||= @vpfile_last.count
+    index_vpfiles
   end
 
   def upload
-    #vpfile = VipiskaFile.upload(params[:file], params[:file_data])
-    #redirect_to :controller => 'finansist/vpfiles', :action => 'index'
   end
 
   def file
-    #if !(params[:id].nil?) then
-    #  id = params[:id]
-    #  vpfile = VipiskaFile.find_by_id id
-    #  send_file "#{Rails.root}/public/r28/#{id}/#{vpfile.file_name}"
-    #end
   end
 
 end

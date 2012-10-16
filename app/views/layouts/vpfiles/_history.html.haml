@@ -3,15 +3,70 @@
     %h4
       История добавлений&nbsp;&nbsp;
       = today_count(@vpfile_last_count).html_safe
+    .flex
+    %div
+      %a Последние
+      &nbsp;&nbsp;
+    %div
+      %a За месяц
+
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"}
+          Дата&nbsp;
+        %th{:scope => "col"}
+          Файл&nbsp;
+        %th{:scope => "col"}
+          Кто добавил&nbsp;
+        %th{:scope => "col"}
+          &nbsp;
+    %tbody
+      - @vpfile_last.each do |f|
+        %tr
+          %td.td_data
+            = f.file_upload_data_small
+          %td
+            %div
+              = f.file_data.html_safe
+            %div.td_file_prop
+              -#TODO: Сколько платежей?
+              = link_to "Платежи", "plategi/#{f.id}"
+              -#= "#{f.files_count_in} файлов"
+              -#= f.file_size
+              -#= f.file_data.html_safe
+            %td.td_user
+              %a{:href => "#"}
+                Андрей Селезнев
+            %td.td_download
+              = link_to f.file_name, :controller => '/file', :action => 'file', :id => f.id
+-#<table class="table">
+-#<thead>
+-#<tr>
+-#<th scope="col">Дата&nbsp;</th>
+-#<th scope="col">Файл&nbsp;</th>
+-#<th scope="col">Кто добавил&nbsp;</th>
+-#<th scope="col">&nbsp;</th>
+-#</tr>
+-#</thead>
+-#<tbody>
+-#<% @vpfile_last.each do |f| %>
+-#<tr>
+-#<td class="td_data"><%= f.file_upload_data_small %></td>
+-#<td>
+-#<div><%= f.file_name_ex %></div>
+-#<div class="td_file_prop"><%= f.files_count_in %> файлов  <%= f.file_size %>  <%= f.file_data.html_safe %></div>
+-#</td>
+-#<td class="td_user"><a href="#">Андрей Селезнев</a></td>
+-#<td class="td_download"><%= link_to "Загрузить", :controller => 'secretar/vpfiles', :action => 'file', :id => f.id %></td>
+-#</tr>
+-#<% end %>
+-#</tbody>
+-#</table>
 
 
 -#<div id="b_history">
 -#
--#<div class="b_hbox">
--#<h4>История добавлений&nbsp;&nbsp;<%= today_count(@vpfile_last_count).html_safe %></h4>
--#<div class="flex"></div>
--#<!--<div>Last &darr;</div>-->
--#</div>
 -#
 -#<!--nav style="padding: 5px; margin-top: 5px;">
 -#<ul>

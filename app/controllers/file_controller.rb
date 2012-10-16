@@ -11,12 +11,9 @@ class FileController < ApplicationController
 
   def upload
     VP::Files.upload(params[:file])
-    if current_user.finansist?
-      redirect_to files_path
-    end
-    if current_user.secretar?
-      redirect_to root_path
-    end
+
+    redirect_to files_path if current_user.finansist?
+    redirect_to root_path if current_user.secretar?
   end
 
   def file

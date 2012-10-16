@@ -187,8 +187,6 @@ $gridspace: 16px;
       font-size: 0.9em;
       height: 18px;
       cursor: pointer;
-      //color: #36F;
-      //border-bottom: 1px dotted #39F;
       opacity: 0.3;
 
       & a {
@@ -206,13 +204,9 @@ $gridspace: 16px;
     }
 
     & .download:hover {
-      //color: #C30;
-      //border-bottom: 1px dotted #C60;
     }
 
     & .download:active {
-      //color: #036;
-      //border-bottom: 1px dotted #C60;
     }
 
 
@@ -357,6 +351,7 @@ a.disapear {
     .b_hbox {
         display: -webkit-box;
         -webkit-box-orient: horizontal;
+        -webkit-box-align: center;
     }
 
     li {

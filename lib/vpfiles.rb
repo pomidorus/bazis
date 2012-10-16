@@ -17,6 +17,7 @@ module VP
       @file_name[-3,3].downcase
     end
 
+    #
     def self.file_r28?
       if file_ext == "r28"
         true
@@ -25,7 +26,7 @@ module VP
       end
     end
 
-
+    #
     def self.file_004?
       if file_ext == "004"
         true
@@ -288,18 +289,20 @@ module VP
 
     def self.upload(file)
 
-      @file = file
-      @file_name = file.original_filename
+      vp_file_upload = VP::FileFactory.create(file)
 
-      if file_r28?
-        file_r28_work
-      end
+      #@file = file
+      #@file_name = file.original_filename
+      #
+      #if file_r28?
+      #  file_r28_work
+      #end
+      #
+      #if file_004?
+      #  file_004_work
+      #end
 
-      if file_004?
-        file_004_work
-      end
-
-      ##TODO: Возможность загрузки файлов 004
+      ##DONE: Возможность загрузки файлов 004
       ##tt = `arj t #{file.original_filename}`
     end
 
@@ -307,8 +310,8 @@ module VP
       VipiskaFile.find_all_by_upload_at Date.today, :order => "created_at desc"
     end
 
-    def self.last_vp
-      VipiskaFile.where("upload_at < :date", :date => Date.today).order("created_at desc").limit(5)
+    def self.last_vp(_limit)
+      VipiskaFile.where("upload_at < :date", :date => Date.today).order("created_at desc").limit(_limit)
     end
 
     #Конвертация файла из кодировки виндовса в утф-8
@@ -339,15 +342,6 @@ module VP
 
   end
 
-
-  class VPFile
-
-  end
-
-
-  class FileR28 < VPFile
-
-  end
 
 end
 
