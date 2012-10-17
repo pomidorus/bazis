@@ -55,27 +55,13 @@ class VipiskaFile < ActiveRecord::Base
     "#{file_for_data.day}.#{file_for_data.month}.#{file_for_data.year}"
   end
 
-  #Создать директорию для файла
-  def create_dir_r28(path="public/r28")
-    directory = "#{Rails.root}/#{path}"
-    Dir.chdir(directory)
-    # Создаю директорию для файла
-    new_file_dir = id.to_s
-    Dir.mkdir(new_file_dir, 0700)
-    Dir.chdir(new_file_dir)
-    Dir.mkdir("files", 0700)
+  def self.today_vp
+    VipiskaFile.find_all_by_upload_at Date.today, :order => "created_at desc"
   end
 
-  #Создать директорию для файла
-  def create_dir_004(path="public/r28")
-    directory = "#{Rails.root}/#{path}"
-    Dir.chdir(directory)
-    # Создаю директорию для файла
-    new_file_dir = id.to_s
-    Dir.mkdir(new_file_dir, 0700)
-    Dir.chdir(new_file_dir)
+  def self.last_vp(_limit)
+    VipiskaFile.where("upload_at < :date", :date => Date.today).order("created_at desc").limit(_limit)
   end
-
 
 end
 

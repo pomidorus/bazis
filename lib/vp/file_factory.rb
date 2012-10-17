@@ -23,7 +23,7 @@ module VP
   #----------------------------------------------
   class VPFile
     attr_accessor :file, :file_name, :vipiska_name, :vpfile,
-                  :acc1, :acc2
+                  :acc1, :acc2, :plateg
 
     ACCOUNT_START = /ВИПИСКА по РАХУНКУ/u
     DATE_PATTERN = /([0-9][0-9])\\(.*?)\\([0-9][0-9])/
@@ -169,15 +169,15 @@ module VP
     end
 
 
-    def self.collect_platnik_c(line)
+    def collect_platnik_c(line)
       platnik_c = ""
       b = URC_PATT.match(line)
-      if !b.nil?
+      unless b.nil?
         bb = b[1]
         platnik_c = "#{bb}" if !bb.nil?
       end
       a = FIZC_PATT.match(line)
-      if !a.nil?
+      unless a.nil?
         aa = a[1]
         platnik_c = "#{aa}" if !aa.nil?
       end
@@ -185,19 +185,19 @@ module VP
     end
 
 
-    def self.collect_summa(line)
+    def collect_summa(line)
       a = SUMMA_PATT.match(line)
       aa = a[1]
       "#{aa}" unless aa.nil?
     end
 
-    def self.collect_bank(line)
+    def collect_bank(line)
       a = BANK_PATT.match(line)
       aa = a[1]
       "#{aa}" unless aa.nil?
     end
 
-    def self.collect_platnik(line)
+    def collect_platnik(line)
       platnik = ""
       a = FIZ_PATT.match(line)
       unless a.nil?
@@ -220,19 +220,19 @@ module VP
           comment << p[pp]
         end
       end
+      plateg.platnik_c= collect_platnik_c(comment)
       comment
     end
 
-    def collect_plateg(plateg)
+    def collect_plateg(lines)
 
-      p = plateg.split("\n")
+      p = lines.split("\n")
 
-      plateg = Plateg.new
+      @plateg = Plateg.new
       plateg.rahunok_id= Rahunok.find_rahunok_id(vpfile.id, acc1)
       plateg.summa= collect_summa(p[0])
       plateg.bank= collect_bank(p[0])
       plateg.platnik= collect_platnik(p[2])
-      plateg.platnik_c= collect_platnik_c(comment)
       plateg.comment= collect_comment(p)
       #plateg.content = plateg
       plateg.save!
