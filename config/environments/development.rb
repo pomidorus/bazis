@@ -35,4 +35,7 @@ BazisDev1::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.log_level = :debug
+
+
 end

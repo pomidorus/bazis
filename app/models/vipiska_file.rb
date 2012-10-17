@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class VipiskaFile < ActiveRecord::Base
-  attr_accessible :download_count, :file_name, :upload_at, :file_size, :file_for_data
+  attr_accessible :download_count, :file_name, :upload_at, :file_size, :file_for_data, :files_count_in
 
   M_RUS_SHORT = ['','янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек']
 
