@@ -234,7 +234,8 @@ module VP
       plateg.bank= collect_bank(p[0])
       plateg.platnik= collect_platnik(p[2])
       plateg.comment= collect_comment(p)
-      #plateg.content = plateg
+      lines["\n"] = " <br /> "
+      plateg.content = lines
       plateg.save!
 
     end

@@ -19,12 +19,18 @@
 <section style="background-color: #f5f7f5; display: -webkit-box; padding: 32px 48px;">
   <div style="margin-right: 80px;">
     <div style="font-size: 12px; color: #aaaaaa; ">Код платежа</div>
-    <div style="font-size:24px; margin: 5px 0px;">13 050 200</div>
-    <div style="font-size:12px;">Аренда земельного участка</div>
+    <% if @code == "1" %>
+      <div style="font-size:24px; margin: 5px 0px;">13 050 200</div>
+      <div style="font-size:12px;">Аренда земельного участка</div>
+    <% end %>
+    <% if @code == "2" %>
+      <div style="font-size:24px; margin: 5px 0px;">13 050 300</div>
+      <div style="font-size:12px;">Земельный налог</div>
+    <% end %>
   </div>
   <div>
     <div style="font-size: 12px; color: #aaaaaa; ">Сумма</div>
-    <div style="font-size:24px; margin: 5px 0px;"><%= @plategi_summa %><span> грн</span></div>
+    <div style="font-size:24px; margin: 5px 0px;"><%= @plategi_summa %></div>
   </div>
 </section>
 
@@ -52,7 +58,7 @@
               <div style="color: #888888; font-size: 0.8em;"><%= plateg.platnik %></div>
             </div>
             <div style="width: 128px;">Август</div>
-            <div style="font-size: 16px; font-weight: bold;"><%= plateg.summa %> грн</div>
+            <div style="font-size: 16px; font-weight: bold;"><%= plateg.summa_to_text %></div>
           </div>
           <div style="display: -webkit-box; padding: 14px 16px; color: #888888;">
             <div style="margin-right: 24px;"><%= plateg.bank %></div>
@@ -60,13 +66,12 @@
           </div>
         </div>
 
-        <div style="width: 320px; font-size: 10px; margin-left: 32px;">
-			<div>R01 90997514 322904  1 739 26007683136756 72.02 600   6</div>
-			<div>КИЇВС.РД"РАЙФФАЙЗЕН БАНК АВАЛЬ",М.КИЇВ</div>
-			<div>13712452 КПТМ "Бориспiльтепломережа"</div>
-			<div>Дата прийняття док-та 09/07/10</div>
-			<div>Код 25010300.Орендна плата за червень м/ць 2010р. згідно рахунку №б/н від
-			07.11.07р. Індекс інфляції 99,6%.Без ПДВ.</div>
+        <div style="width: 420px; font-size: 10px; margin-left: 32px;">
+          <code style="border: none; color: #444444; background-color: #ffffff;">
+            <%= plateg.content.html_safe %>
+            <br />
+            dd
+          </code>
         </div>
     </section>
     <% end %>

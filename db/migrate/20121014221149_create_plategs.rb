@@ -9,6 +9,7 @@ class CreatePlategs < ActiveRecord::Migration
       t.string :platnik
       t.string :platnik_c
       t.text :comment
+      t.text :content
 
       t.timestamps
     end

@@ -6,7 +6,11 @@ class Plateg < ActiveRecord::Base
 
   #Находим все платежи по файлу выписки и коду
   def self.find_all_by_vipiska_file_id_and_rahunok_code(id, code)
-    rahunok = Rahunok.where("vipiska_file_id = :id AND code = :code", :id => id, :code => code)
+
+    #rahunok = Rahunok.where("vipiska_file_id = :id AND code = :code", :id => id, :code => code)
+    rahunok = Rahunok.find_arenda(id) if code == "1"
+    rahunok = Rahunok.find_nalog(id) if code == "2"
+
     plg = []
     rahunok.each do |r|
       plategi = Plateg.find_all_by_rahunok_id r.id
@@ -14,6 +18,8 @@ class Plateg < ActiveRecord::Base
         plg << p
       end
     end
+    plg.sort_by! {|x| x.summa.to_f}
+    plg.reverse!
     return plg
   end
 
@@ -23,7 +29,7 @@ class Plateg < ActiveRecord::Base
     plategi.each do |p|
       money << p.summa.to_f
     end
-    return money.sum
+    return string_to_money(money.sum)
   end
 
   #Находим имя плательщика по ЕДРПОУ
@@ -35,6 +41,26 @@ class Plateg < ActiveRecord::Base
     else
       "Нет в базе"
     end
+  end
+
+  def self.string_to_money(money)
+    s = money.round(2)
+    kop = (s % 1).round(2)
+    kop_r = ((s % 1).round(2)*100).round(0)
+    grn = (s - kop).round(0)
+    grn_s = grn.to_s
+    grn_s = grn.to_s.insert -4, " " if grn_s.length > 3
+    grn.i
+    if kop_r == 0.0
+      "#{grn_s} грн"
+    else
+      "#{grn_s} грн #{kop_r} коп"
+    end
+
+  end
+
+  def summa_to_text
+    Plateg.string_to_money(summa.to_f)
   end
 
 end

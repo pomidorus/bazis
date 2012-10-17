@@ -6,7 +6,8 @@
     %div
       = f.file_data
   .data
-    = link_to "Платежи", "plategi/#{f.id}"
+    = link_to "Аренда", "plategi/#{f.id}?code=1"
+    = link_to "Налог", "plategi/#{f.id}?code=2"
   .flex
   .download
     = link
