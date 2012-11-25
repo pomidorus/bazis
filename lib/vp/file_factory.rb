@@ -193,8 +193,10 @@ module VP
 
     def collect_bank(line)
       a = BANK_PATT.match(line)
-      aa = a[1]
-      "#{aa}" unless aa.nil?
+      unless a.nil?
+        aa = a[1]
+        "#{aa}" unless aa.nil?
+      end
     end
 
     def collect_platnik(line)
