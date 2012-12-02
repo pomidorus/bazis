@@ -29,9 +29,11 @@ BazisDev1::Application.routes.draw do
 
   match 'files', :to => 'finansist/vpfiles#index'
   match 'arendators', :to => 'finansist/arendators#index'
+  match 'dogovora', :to => 'finansist/dogovora#index'
 
   match 'plategi', :to => 'finansist/plategi#index'
   match 'plategi/:id', :to => 'finansist/plategi#show'
+  match 'arendators/:id', :to => 'finansist/arendators#show'
 
   namespace :admin do
     resources :users

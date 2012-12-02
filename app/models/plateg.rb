@@ -4,6 +4,16 @@ class Plateg < ActiveRecord::Base
   attr_accessible :acc1, :acc2, :bank, :comment, :platnik, :platnik_c, :summa
   belongs_to :rahunok
 
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |plateg|
+        csv << plateg.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   #Находим все платежи по файлу выписки и коду
   def self.find_all_by_vipiska_file_id_and_rahunok_code(id, code)
 

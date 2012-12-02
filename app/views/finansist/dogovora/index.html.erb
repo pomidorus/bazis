@@ -1,105 +1,140 @@
 <% m = 'dogovora' %>
 <%= render :partial => "layouts/header", :locals => {:m => m} %>
 
-<section style="margin-left: 20px;">
+<section class="dogovora_layout">
 
-  <div class="row">
-    <h2 class="span4" style="margin-top: 0px;">Договора аренды</h2>
-    <a class="span3" href="#" style="padding-top: 10px; font-size: 1.2em">Архив</a>
+    <header>
+
+        <div class="caption">
+          <h3>Договора аренды</h3>
+          <section class="xls">
+            <img src="assets/xls.png" alt="xls" width="14px" height="14px">
+            <a href="http://localhost:3002/arendators#"><span>договора аренды</span></a>
+            <span class="xls_info">(xls, 635КБ)</span>
+          </section>
+        </div>
+
+        <div class="search">
+            <input id="search" placeholder="Поиск договоров аренды по номеру">
+            <div class="info">
+                <div class="example">
+                  <span class="label_grey">Например:&nbsp;</span><a href="http://localhost:3002/arendators#"><span class="psevdo_link_grey" style="font-size:0.7em;">040633700065</span></a>
+                </div>
+                <div>
+                  <a href="http://localhost:3002/arendators#"><span class="psevdo_link">история поиска</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="new_dogovor">
+          <div>
+            <label>Добавить:</label>
+          </div>
+          <div class="box_v">
+            <div>
+              <button>договор аренды</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="history">
+          <div style="">
+              <a href="http://localhost:3002/arendators#">
+                <span class="psevdo_link">история добавлений</span>
+              </a>
+
+              <div>
+                  <span class="data">23.10.10 &mdash;</span>
+                  <a href="http://localhost:3002/arendators#">
+                    <span class="psevdo_link_grey" style="font-size:11px;"><a href="#"><span class="number">№ 040733700049</span></a></span>
+                  </a>
+              </div>
+          </div>
+        </div>
+
+    </header>
+
+    <section class="filter">
+
+  <div class="filter_caption">
+    <span style="color: grey;">Отобразить договора</span>
+    <nav>
+        <a href="http://localhost:3002/arendators#"><span>действующие</span></a>
+        <a href="http://localhost:3002/arendators#"><span>архив</span></a>
+    </nav>
   </div>
 
-  <section style="margin-top: 25px; margin-left: 5px;">
+        <div style="display: -webkit-box; -webkit-box-orient: vertical;">
+            <div style="display: -webkit-box;">
+                <div class="check_box">
+                  <input type="checkbox"><div>закончился срок</div>
+                </div>
 
-  <h3>Истекшие <span class="badge">2</span></h3>
+                <div class="check_box">
+                  <input type="checkbox"><div>без госрегистрации</div>
+                </div>
 
-    <dogovora>
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="color: #DDDDDD; font-size:0.8em">Номер</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Платежи</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Начислено</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Оплачено</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Сальдо</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04364728</a></td>
-            <td style="padding-top:10px;"><a href="#">24 платежа</a></td>
-            <td style="padding-top:10px;">1000 грн</td>
-            <td style="padding-top:10px;">1023 грн</td>
-            <td style="padding-top:10px; color:green">23 грн</td>
-          </tr>
-          <tr>
-            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04362637</a></td>
-            <td style="padding-top:10px;"><a href="#">42 платежа</a></td>
-            <td style="padding-top:10px;">2000 грн</td>
-            <td style="padding-top:10px;">1900 грн</td>
-            <td style="padding-top:10px; color:#ff0000;">-100 грн</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </dogovora>
+                <div class="check_box">
+                  <input type="checkbox"><div>продленные</div>
+                </div>
+            </div>
 
 
-  </section>
+            <div style="display: -webkit-box; margin-top: 16px;">
+                <div class="check_box">
+                  <input type="checkbox"><div>ставка процента</div>
+                </div>
+
+                <div class="check_box">
+                  <input type="checkbox"><div>площадь земельного участка</div>
+                </div>
+
+                <div class="check_box">
+                  <input type="checkbox"><div>дата регистрации</div>
+                </div>
+            </div>
+
+        </div>
 
 
-  <section style="margin-top: 25px; margin-left: 5px;">
+    <div style="-webkit-box-flex: 1;"></div>
 
-  <h3>Действующие <span class="badge">2475</span></h3>
+      <div class="btn-group" data-toggle="buttons-radio" style="-webkit-box-flex: 1;">
+        <button type="button" class="btn_filter btn">на карте</button>
+        <button type="button" class="btn_filter btn">списком</button>
+        <button type="button" class="btn_filter btn">плиткой</button>
+      </div>
 
-  <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
-    <div class="span4" style="height: 80px; background-color: #EEEEEE; padding-top: 15px; padding-left: 20px;">
-       <div>Фильтрация данных:</div>
-       <div style="margin-top: 10px;">
-         <input type="text" style="width: 300px; position: relative; top:5px;" />
-         <button style="width: 35px; height: 27px;">Ok</button>
-       </div>
-    </div>
-  </div>
+    </section>
 
-    <dogovora>
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="color: #DDDDDD; font-size:0.8em">Номер</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Осталось</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Платежи</th>
-            <th style="color: #DDDDDD; font-size:0.8em">Сальдо</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04364728</a></td>
-            <td style="padding-top:10px;">
-              <div>2 недели</div>
-              <div style="color: #DDDDDD; font-size: 0.8em;">10 августа</div>
-            </td>
-            <td style="padding-top:10px;"><a href="#">24 платежа</a></td>
-            <td style="padding-top:10px; color:green">23 грн</td>
-          </tr>
-          <% (1..10).each do |n| %>
-          <tr>
-            <td style="padding-top:10px;"><a href="/finance/dogovora/show">04362637</a></td>
-            <td style="padding-top:10px;">
-              <div>1 месяц</div>
-              <div style="color: #DDDDDD; font-size: 0.8em;">23 ноября</div>
-            </td>
-            <td style="padding-top:10px;"><a href="#">42 платежа</a></td>
-            <td style="padding-top:10px; color:#ff0000;">-100 грн</td>
-          </tr>
+    <section class="dogovora">
+
+        <ul style="margin-left: 32px; ">
+
+          <% @dogovora.each do |dogovor| %>
+            <li class="arendator">
+
+                    <div class="dolg no">
+                      <a href="#"><span>должник</span></a>
+                    </div>
+
+                    <div class="arendator_info">
+
+                        <div style="display: -webkit-box;">
+                            <div class="arendator_name">
+                              <%= link_to "<span>#{dogovor.number}</span>".html_safe, :controller => 'finansist/dogovora', :action => 'show', :id => dogovor.id %>
+                            </div>
+                        </div>
+
+                    </div><!-- arendator -->
+
+                </li>
           <% end %>
 
-        </tbody>
-      </table>
-    </dogovora>
+        </ul>
 
 
-  </section>
 
-
+    </section>
 
 </section>

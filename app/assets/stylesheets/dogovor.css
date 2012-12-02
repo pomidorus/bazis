@@ -1,0 +1,36 @@
+.dogovor_layout {
+    padding: 0 32px;
+    padding-top: 32px;
+}
+
+
+.dogovor_header {
+	display: -webkit-box;
+}
+
+.dogovor_header .edit {
+    display: -webkit-box;
+}
+
+.dogovor_header .edit a {
+    font-size: 13px;
+}
+
+
+.dogovor_header .edit .history {
+    font-size: 12px;
+    width: 160px;
+    line-height: 14px;
+    padding: 4px 0;
+    color: #dddddd;
+}
+
+.dogovor_header .edit .edit_history {
+    margin: 0 16px;
+    padding-top: 4px;
+}
+
+
+.dogovor_header .caption {
+	width: 640px;
+}

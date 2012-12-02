@@ -1,0 +1,94 @@
+<% m = 'arendators' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<section class="layout">
+
+    <header>
+
+        <div class="caption">
+          <h3>Арендаторы</h3>
+          <section class="xls">
+            <img src="assets/xls.png" alt="xls" width="14px" height="14px">
+            <a href="http://localhost:3002/arendators#"><span>арендаторы</span></a>
+            <span class="xls_info">(xls)</span>
+          </section>
+        </div>
+
+        <div class="search">
+            <input id="search" placeholder="Поиск арендаторов по ЕДРПОУ">
+            <div class="info">
+                <div class="example">
+                  <span class="label_grey">Например:&nbsp;</span><a href="http://localhost:3002/arendators#"><span class="psevdo_link_grey" style="font-size:12px;">Бориспольавтогазсервис</span></a>
+                </div>
+                <div>
+                  <a href="http://localhost:3002/arendators#"><span class="psevdo_link">история поиска</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="new">
+          <div>
+            <label>Добавить:</label>
+          </div>
+          <div class="box_v">
+            <div>
+              <button class="add">арендатора</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="history">
+          <div style="">
+              <a href="http://localhost:3002/arendators#">
+                <span class="psevdo_link">история добавлений</span>
+              </a>
+
+              <div>
+                  <span class="data">23.10.10 &mdash;</span>
+                  <a href="http://localhost:3002/arendators#">
+                    <span class="psevdo_link_grey"><a href="#"><span class="number">Автосервисстрой</span></a></span>
+                  </a>
+              </div>
+          </div>
+        </div>
+
+    </header>
+
+    <section class="arendators">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Название</th>
+                <th>ЕДРПОУ</th>
+                <th>Оплачено</th>
+                <th>Начислено</th>
+                <th>Платежи</th>
+                <th>Договора аренды</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @arendators.each do |arendator| %>
+                <tr>
+                  <td></td>
+                  <td><%= arendator.name %></td>
+                  <td><%= arendator.edrpou %></td>
+                  <td>2 465,45 грн</td>
+                  <td>2 465,45 грн</td>
+                  <td>
+                      <div><a>13 платежей</a></div>
+                      <div>13.10 &mdash; 23,45 грн</div>
+                  </td>
+                  <td>
+                      <div><a href="#">№ 3482387878</a></div>
+                      <div><a href="#">№ 3482387878</a></div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+
+    </section>
+
+</section>

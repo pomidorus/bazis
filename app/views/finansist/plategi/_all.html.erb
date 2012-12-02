@@ -8,13 +8,13 @@
           <h3>Платежи</h3>
           <section class="xls">
             <img src="assets/xls.png" alt="xls" width="14px" height="14px">
-            <a href="/getplategi"><span>платежи</span></a>
-            <span class="xls_info">(xls, 828КБ)</span>
+            <%= link_to "<span>платежи</span>".html_safe, plategi_path(format: "xls") %>
+            <span class="xls_info">(xls)</span>
           </section>
         </div>
 
-        <div class="search">
-            <input id="search" placeholder="Поиск платежей по ЕДРПОУ">
+        <div class="search" style="visibility: visible;">
+            <input id="search" placeholder="Поиск платежа по номеру">
             <div class="info">
                 <div class="example">
                   <span class="label_grey">Например:&nbsp;</span><a href="http://localhost:3002/arendators#"><span class="psevdo_link_grey" style="font-size:12px;">45364537</span></a>
@@ -108,21 +108,28 @@
     </section>
 
 
-    <h1>Все платежи</h1>
+    <div style="padding-left: 40px;">
+      <h1>Все платежи</h1>
 
-    <table id="products">
-      <tr>
-        <th>Product Name</th>
-        <th>Release Date</th>
-        <th>Price</th>
-      </tr>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.released_on.strftime("%B %e, %Y") %></td>
-        <td><%= number_to_currency(product.price) %></td>
-      </tr>
-    <% end %>
-    </table>
+      <table id="products" class="table" style="width: 50%;">
+        <thead>
+            <tr>
+              <th>Сумма</th>
+              <th>Код банка</th>
+              <th>ЕДРПОУ плательщика</th>
+            </tr>
+        </thead>
+        <tbody>
+      <% @plategi.each do |plateg| %>
+            <tr>
+              <td><%= plateg.summa %></td>
+              <td><%= plateg.bank %></td>
+              <td><%= plateg.platnik %></td>
+            </tr>
+      <% end %>
+        </tbody>
+      </table>
+
+    </div>
 
 </section>

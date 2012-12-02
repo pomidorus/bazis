@@ -1,6 +1,17 @@
 # encoding: UTF-8
 
-require "./lib/dataparse/person.rb"
+require "./lib/dataparse/arendators.rb"
+require "./lib/dataparse/dogovora.rb"
+
+#ArendatorTypes.delete_all
+#ArendatorTypes.create!({:name => "ПП", :description => "Приватне підприємство"})
+
+#Person.delete_all
+#arendators_parse(PERSON_FILE)
+
+DogovorArenda.delete_all
+dogovora_parse(DOGOVORA_FILE)
+
 
 #Admin.delete_all
 #Admin.create!({:username => "a.seleznov", :name => "Андрей", :surname => "Селезнев", :email => "andrewaka39@gmail.com", :password => "testtest", :password_confirmation => "testtest" })
@@ -41,8 +52,8 @@ require "./lib/dataparse/person.rb"
 
 
 #Person.delete_all
-#parsePersonFile(PERSON_FILE)
+#arendators_parse(PERSON_FILE)
 
-VipiskaFile.delete_all
-Rahunok.delete_all
-Plateg.delete_all
+#VipiskaFile.delete_all
+#Rahunok.delete_all
+#Plateg.delete_all

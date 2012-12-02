@@ -1,0 +1,118 @@
+.arendator_header {
+    display: -webkit-box;
+}
+
+.arendator_header .edit {
+    display: -webkit-box;
+}
+
+.arendator_header .edit a {
+    font-size: 13px;
+}
+
+
+.arendator_header .edit .history {
+    font-size: 12px;
+    width: 160px;
+    line-height: 14px;
+    padding: 4px 0;
+    color: #dddddd;
+}
+
+.arendator_header .edit .edit_history {
+    margin: 0 16px;
+    padding-top: 4px;
+}
+
+
+
+.arendator_header h3 {
+    font-size: 20px;
+    line-height: 1.4em;
+    color: black;
+    /*text-shadow: 0px 0px 4px #797979;*/
+}
+
+.arendator_layout {
+    padding: 0 32px;
+    padding-top: 32px;
+}
+
+.arendator_content {
+  display: -webkit-box;
+}
+
+.arendator_content .main {
+  width: 640px;
+}
+
+.personal h3, .contact h3 {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+.contact {
+    margin-top: 24px;
+}
+
+.position {
+  font-weight: bold;
+}
+
+.people {
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.people a {
+    font-size: 12px;
+}
+
+.address {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.address div {
+    margin-bottom: 8px;
+}
+
+.map {
+    background-color: grey;
+    width: 240px;
+    height: 160px;
+}
+
+.address a {
+    font-size: 12px;
+}
+
+.arendator_tool {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.arendator_tool a {
+    font-size: 11px;
+}
+
+.arendator_tool .edrpou {
+
+}
+
+.arendator_tool .link {
+  padding: 0 0;
+}
+
+.meta_info {
+    margin-top: 16px;
+    padding: 4px 8px;
+    width: 240px;
+    font-size: 12px;
+    border: 1px dashed #808080;
+}

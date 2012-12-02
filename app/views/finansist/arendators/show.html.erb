@@ -1,2 +1,159 @@
-<h1>Finansist::Arendators#show</h1>
-<p>Find me in app/views/finansist/arendators/show.html.erb</p>
+<% m = 'arendators' %>
+<%= render :partial => "layouts/header", :locals => {:m => m} %>
+
+<section class="arendator_layout">
+
+    <section class="arendator_header">
+        <div style="width: 560px; margin-right: 160px;">
+          <h3><span style="color: #bcbcbc;">товариство з обмеженою відповідальністю</span><br><%= @arendator.name %></h3>
+        </div>
+        <div class="edit">
+          <button class="btn">Редактировать</button>
+          <div class="edit_history">
+              <span><a href="#">История редактирования</a></span>
+              <div class="history">12.10 &mdash; изменено название с Блом на Облом</div>
+          </div>
+        </div>
+    </section>
+
+    <section class="arendator_tool">
+        <div style="width: 560px; margin-right: 160px;">
+          <span class="edrpou"><span style="color: #d4d4d4;">ЕДРПОУ:</span>&nbsp;<%= @arendator.edrpou %></span>
+          <div class="link">
+            <a href="http://edrpou.ua">проверить у регистратора</a>
+          </div>
+        </div>
+    </section>
+
+
+    <section class="arendator_content">
+
+        <section class="main">
+
+            <div class="pereplata">
+              <span>Переплата на 18 сентября</span>
+              <div>
+                <span class="summa">560,23 грн</span>
+              </div>
+            </div>
+
+            <div class="oplacheno">
+              <span>Оплачено</span>
+              <div>
+                <span class="summa">560,23 грн</span>
+              </div>
+
+              <div class="detali">
+                  <div>
+                    <span>12.10.12</span><span>126,56 грн</span>
+                  </div>
+                  <div>
+                    <span>12.09.12</span><span>26,56 грн</span>
+                  </div>
+                  <div>
+                    <span>12.08.12</span><span>56,56 грн</span>
+                  </div>
+              </div>
+
+            </div>
+
+            <div class="nachisleno">
+              <span>Начислено</span>
+              <div>
+                <span class="summa">560,23 грн</span>
+              </div>
+
+                <div class="detali">
+                  <div>
+                    <span>1.10.12</span><span>243,56 грн</span>
+                  </div>
+                  <div>
+                    <span>1.09.12</span><span>243,56 грн</span>
+                  </div>
+                  <div>
+                    <span>1.08.12</span><span>243,56 грн</span>
+                  </div>
+                </div>
+            </div>
+
+            <section class="plategi">
+
+                <h4>23 платежа</h4>
+
+                <div>
+                  <span>12.10.12</span><span>126,56 грн</span>
+                </div>
+                <div>
+                  <span>12.09.12</span><span>26,56 грн</span>
+                </div>
+                <div>
+                  <span>12.08.12</span><span>56,56 грн</span>
+                </div>
+
+
+            </section>
+
+        </section>
+
+        <section class="info">
+
+          <div class="personal">
+            <div>
+              <h3>Руководство</h3>
+            </div>
+
+            <div class="people">
+                <div class="position">генеральный директор</div>
+                <div>
+                  Герасименко<br>Сергей Михайлович
+                </div>
+            </div>
+
+            <div class="people">
+                <div class="position">бухгалтер</div>
+                <div>
+                  Ефремова<br>Вера Александровна
+                </div>
+            </div>
+          </div>
+
+            <div class="contact">
+              <div>
+                <h3>Контактная информация</h3>
+              </div>
+
+              <div class="people">
+                  <div class="position">телефон</div>
+                  <div>
+                    <tel>(093) 856-96-11</tel>
+                  </div>
+              </div>
+
+              <div class="people">
+                  <div class="position">цифропочта</div>
+                  <div>
+                      <a href="mailto:info@fox-travel.ru">info@fox-travel.ru</a>
+                  </div>
+              </div>
+            </div>
+
+            <div class="address">
+              <div style="width: 240px;">
+                  08300, м.Бориспіль, вулиця Київський шлях, будинок 31
+              </div>
+              <div class="map">
+
+              </div>
+              <a href="#">посмотреть на карте</a>
+            </div>
+
+            <div class="meta_info">
+              Арендатор добавлен Андреем Селезневым 22 декабря 2012
+            </div>
+
+
+        </section>
+
+    </section>
+
+</section>

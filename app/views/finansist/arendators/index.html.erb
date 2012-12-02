@@ -77,8 +77,11 @@
 
   <div class="btn-group" data-toggle="buttons-radio" style="-webkit-box-flex: 1;">
     <button type="button" class="btn_filter btn">на карте</button>
-    <button type="button" class="btn_filter btn">списком</button>
-    <button type="button" class="btn_filter btn">плиткой</button>
+    <!--button id="btn_spysok" type="button" class="btn_filter btn">списком</button-->
+    <!--button type="button" class="btn_filter btn">плиткой</button-->
+    <!--%= link_to "списком", finansist_arendators_path, :vid => "table" %-->
+    <a href="/arendators?vid=table" style="padding: 8px 8px; font-size: 14px;">списком</a>
+    <a href="/arendators?vid=list" style="padding: 8px 8px; font-size: 14px;">плиткой</a>
   </div>
 
     <div style="-webkit-box-flex: 0.5;"><a href="#">Архив</a></div>
@@ -104,26 +107,26 @@
     <span class="letter">Д</span>
     <span class="letter">Е</span>
       <span class="letter">Ё</span>
-      <span class="letter hovered">Ж</span>
-      <span class="letter selected">З</span>
-      <span class="letter disabled">И</span>
+      <span class="letter">Ж</span>
+      <span class="letter">З</span>
+      <span class="letter">И</span>
       <span class="letter">К</span>
       <span class="letter">Л</span>
       <span class="letter">М</span>
-      <span class="letter hovered">Н</span>
-      <span class="letter selected">О</span>
-      <span class="letter disabled">П</span>
+      <span class="letter">Н</span>
+      <span class="letter">О</span>
+      <span class="letter">П</span>
       <span class="letter">Р</span>
       <span class="letter">С</span>
       <span class="letter">Т</span>
-      <span class="letter hovered">У</span>
-      <span class="letter selected">Ф</span>
-      <span class="letter disabled">Х</span>
+      <span class="letter">У</span>
+      <span class="letter">Ф</span>
+      <span class="letter">Х</span>
       <span class="letter">Ч</span>
       <span class="letter">Щ</span>
       <span class="letter">Э</span>
-      <span class="letter hovered">Ю</span>
-      <span class="letter selected">Я</span>
+      <span class="letter">Ю</span>
+      <span class="letter">Я</span>
 
   </div>
 
@@ -134,7 +137,7 @@
 
   <ul style="margin-left: 32px; ">
 
-    <% @person.each do |p| %>
+    <% @arendators.each do |arendator| %>
       <li class="arendator">
 
               <div class="dolg no">
@@ -145,7 +148,7 @@
 
                   <div style="display: -webkit-box;">
                       <div class="arendator_name">
-                        <a href="#"><span><%= p.name %></span></a>
+                        <%= link_to "<span>#{arendator.name}</span>".html_safe, :controller => 'finansist/arendators', :action => 'show', :id => arendator.id %>
                       </div>
                   </div>
 
