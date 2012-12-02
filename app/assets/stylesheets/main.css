@@ -1,0 +1,131 @@
+h1, h2, h4, h3 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+input:hover {
+  border: 1px solid rgba(169, 169, 169, 0.8);
+  border-top: 1px solid rgba(169, 169, 169, 0.9);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/* line 86, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+input {
+  padding: 0px 8px;
+  border: 1px solid rgba(169, 169, 169, 0.7);
+  border-top: 1px solid rgba(169, 169, 169, 0.8);
+  -webkit-border-radius: 1px;
+  height: 2.2em;
+  width: 320px;
+  background-color: #e0e0e0;
+}
+
+
+.layout button.add:hover {
+  background-image: -webkit-linear-gradient(top, #fc97ac 0, #fc4c6f 60%, #fc8ba2 100%);
+}
+
+/* line 15, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.layout button.add:active  {
+  background-image: -webkit-linear-gradient(top, #f24b6d, #fca4b6);
+  top: 2px;
+  -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* line 21, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.layout button.add {
+  border: none;
+  color: white;
+  font-size: 105%;
+  -webkit-border-radius: 4px;
+  padding: 0.3em 0.6em 0.4em;
+  -webkit-box-shadow: 0 1px 1px rgba(100, 100, 100, 0.35);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(top, #fc7e97, #f23057);
+  position: relative;
+}
+
+.new label {
+  color: rgba(105, 105, 105, 0.65);
+  position: relative;
+  top: 4px;
+  left: -5px;
+}
+
+.dates {
+
+}
+
+
+.dates .item {
+  margin-right: 16px;
+}
+
+.dates .data {
+  padding: 8px 0;
+}
+
+
+
+.new a {
+  font-size: 0.85em;
+}
+
+/* line 46, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.new a:hover {
+  text-decoration: none;
+}
+
+/* line 51, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.history {
+    line-height: 1.2em;
+    margin-right: 16px;
+    width: 192px;
+    margin-top: 17px;
+}
+
+/* line 56, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.history a {
+  font-size: 0.85em;
+}
+
+/* line 60, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.history a:hover {
+  text-decoration: none;
+}
+
+
+.psevdo_link_grey {
+  color: #a8a8a8;
+  border-bottom: 1px dashed #bbbbbb;
+  cursor: pointer;
+}
+
+/* line 178, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.psevdo_link_grey:hover {
+  color: #b0b310;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+.psevdo_link {
+  font-size: 11px;
+  color: #1B95CE;
+  border-bottom: 1px dashed #85a6bf;
+  cursor: pointer;
+}
+
+/* line 167, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.psevdo_link:hover {
+  color: #1780b3;
+}

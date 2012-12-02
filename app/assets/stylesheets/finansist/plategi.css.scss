@@ -1,3 +1,115 @@
 // Place all the styles related to the finansist/plategi controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.layout button.btn_filter:hover {
+  background-image: -webkit-linear-gradient(top, #edede4, #ddddd4);
+
+}
+
+/* line 15, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.layout button.btn_filter:active  {
+  /*background-image: -webkit-linear-gradient(bottom, #f3f3e7, #ddddd4);*/
+    top: 1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+    background-image: -webkit-linear-gradient(bottom, #f5d7dd, #dbc1c6);
+
+}
+
+/* line 21, ../../../app/assets/stylesheets/finansist/arendators.css.scss */
+.layout button.btn_filter {
+  border: none;
+  color: #444444;
+  font-size: 1em;
+  -webkit-border-radius: 0;
+  padding: 0.2em 0.5em 0.3em;
+  -webkit-box-shadow: 0 1px 1px rgba(100, 100, 100, 0.35);
+  background-image: -webkit-linear-gradient(top, #f3f3e7, #ddddd4);
+  /*border: 1px solid rgba(252,252,240,0.2) ;*/
+  position: relative;
+}
+
+
+.layout button.btn_filter.selected {
+  top: 1px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+  background-image: -webkit-linear-gradient(bottom, #f5d7dd, #dbc1c6);
+}
+
+
+.filter_group {
+   /*display: inline-block;*/
+   white-space: nowrap;
+   font-size: 14px;
+   vertical-align: middle;
+   padding: 0px 24px;
+}
+
+.filter_group button:last-child {
+   margin-left: -4px;
+    -webkit-border-top-right-radius: 4px;
+            border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+}
+
+.filter_group button:first-child {
+    -webkit-border-top-left-radius: 4px;
+            border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+}
+
+
+.plategi_filter {
+    padding: 24px 32px;
+    padding-bottom: 16px;
+    background-color: #fcfcf0;
+    vertical-align: middle;
+    display: -webkit-box;
+    border-bottom: 2px solid #f5f5eb;
+}
+
+.filter_rahunok {
+    margin-top: 16px;
+    padding: 0px 24px;
+}
+
+.filter_rahunok select {
+    width: 160px;
+    height: 28px;
+    border: 1px solid #eeeeee;
+}
+
+.filter_rahunok select:focus {
+ outline: none;
+}
+
+.filter_rahunok a {
+  font-size: 12px;
+  position: relative;
+  top: -3px;
+  margin-left: 4px;
+}
+
+
+.filter_rahunok.data a {
+  font-size: 12px;
+  position: relative;
+  top: 5px;
+  margin-left: 4px;
+}
+
+.plategi_graph {
+  padding: 32px 0;
+  background-image: -webkit-linear-gradient(top, #fcfcf2, white);
+}
+
+.plategi_graph canvas {
+    padding: 0 0;
+}
+
+.plategi_graph .canva {
+    margin: 0px 32px;
+}

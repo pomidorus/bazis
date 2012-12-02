@@ -1,0 +1,77 @@
+.layout {
+
+}
+
+
+.layout header {
+    border-top: 4px solid #dc143c;
+	background-image: -webkit-linear-gradient(#f2f2f2, #cccccc);
+    border-bottom: 3px solid #bfbfbf;
+    display: -webkit-box;
+    /*-webkit-box-align: top;*/
+    padding: 8px 32px;
+}
+
+
+.layout .caption {
+    margin-right: 32px;
+    width: 245px;
+}
+
+
+.caption .xls {
+  position: relative;
+  top: -8px;
+}
+
+.caption h3 {
+    font-size: 1.7em;
+    color: #444444;
+}
+
+.xls span {
+    font-size: 12px;
+}
+
+.xls .xls_info {
+    font-size: 12px;
+    color: #a2a2a2;
+}
+
+
+
+.layout .search {
+    margin-right: 32px;
+    min-width: 192px;
+    margin-top: 5px;
+    width: 420px;
+}
+
+.search .info {
+    padding-top: 4px;
+    display: -webkit-box;
+}
+
+.search .example {
+    margin-right: 32px;
+}
+
+
+.layout .new {
+    margin-right: 20px;
+    /*width: 192px;*/
+    display: -webkit-box;
+    margin-top: 20px;
+}
+
+.history .data {
+   margin-right: 4px;
+   font-size:0.7em;
+   color:rgba(105, 105, 105, 0.65);
+}
+
+.history .number {
+   font-size: 11px;
+}
+
+

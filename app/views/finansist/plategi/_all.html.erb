@@ -1,0 +1,128 @@
+
+
+<section class="layout">
+
+    <header>
+
+        <div class="caption">
+          <h3>Платежи</h3>
+          <section class="xls">
+            <img src="assets/xls.png" alt="xls" width="14px" height="14px">
+            <a href="/getplategi"><span>платежи</span></a>
+            <span class="xls_info">(xls, 828КБ)</span>
+          </section>
+        </div>
+
+        <div class="search">
+            <input id="search" placeholder="Поиск платежей по ЕДРПОУ">
+            <div class="info">
+                <div class="example">
+                  <span class="label_grey">Например:&nbsp;</span><a href="http://localhost:3002/arendators#"><span class="psevdo_link_grey" style="font-size:12px;">45364537</span></a>
+                </div>
+                <div>
+                  <a href="http://localhost:3002/arendators#"><span class="psevdo_link">история поиска</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="new">
+          <div>
+            <label>Добавить:</label>
+          </div>
+          <div class="box_v">
+            <div>
+              <button class="add">платеж</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="history">
+          <div style="">
+              <a href="http://localhost:3002/arendators#">
+                <span class="psevdo_link">история добавлений</span>
+              </a>
+
+              <div>
+                  <span class="data">15.09.12 &mdash;</span>
+                  <a href="http://localhost:3002/arendators#">
+                    <span class="psevdo_link_grey"><a href="#"><span class="number">123,45 грн "Газмяс"</span></a></span>
+                  </a>
+              </div>
+          </div>
+        </div>
+
+    </header>
+
+    <section class="plategi_filter">
+
+         <div style="color: #dddddd; padding-top: 2px; padding-right: 16px;">
+             Платежи по
+         </div>
+
+         <div style="">
+
+             <div class="filter_group" >
+               <button class="btn_filter selected">аренде</button>
+               <button class="btn_filter">земельному налогу</button>
+             </div>
+
+             <div class="filter_rahunok">
+                 <select >
+                     <option>Счет:</option>
+                     <option>Код платежа:</option>
+                 </select>
+
+                 <a href="">2342323423476</a>
+                 <a href="">2342323423476</a>
+             </div>
+
+         </div>
+
+
+        <div style="">
+
+            <div class="filter_group" >
+              <button class="btn_filter selected">за год</button>
+              <button class="btn_filter">за месяц</button>
+            </div>
+
+            <div class="filter_rahunok data">
+                <a href="">2012</a>
+                <a href="">2011</a>
+            </div>
+
+        </div>
+
+         <div>
+           <button class="btn_show">Показать</button>
+         </div>
+
+    </section>
+
+    <section class="plategi_graph">
+
+        <div class="canva">
+            <canvas id="cvs" width="960px" height="250">[No canvas support]</canvas>
+        </div>
+
+    </section>
+
+
+    <h1>Все платежи</h1>
+
+    <table id="products">
+      <tr>
+        <th>Product Name</th>
+        <th>Release Date</th>
+        <th>Price</th>
+      </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.released_on.strftime("%B %e, %Y") %></td>
+        <td><%= number_to_currency(product.price) %></td>
+      </tr>
+    <% end %>
+    </table>
+
+</section>

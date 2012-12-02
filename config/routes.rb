@@ -8,6 +8,7 @@ BazisDev1::Application.routes.draw do
   get "arendators/index"
   get "arendators/show"
   get "plategi/index"
+  get "plategi/all"
   get "plategi/show"
   get "vipiski/index"
   get "vipiski/show"
