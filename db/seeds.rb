@@ -9,8 +9,8 @@ require "./lib/dataparse/dogovora.rb"
 #Person.delete_all
 #arendators_parse(PERSON_FILE)
 
-DogovorArenda.delete_all
-dogovora_parse(DOGOVORA_FILE)
+#DogovorArenda.delete_all
+#dogovora_parse(DOGOVORA_FILE)
 
 
 #Admin.delete_all
@@ -49,7 +49,6 @@ dogovora_parse(DOGOVORA_FILE)
 #VipiskaFile.create!({:file_name => "OFU-0509", :upload_at => '2012-10-05', :download_count => 1})
 
 #-----------------------------------------------------------------------
-
 
 #Person.delete_all
 #arendators_parse(PERSON_FILE)

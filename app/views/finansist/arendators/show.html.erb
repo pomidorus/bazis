@@ -31,19 +31,16 @@
         <section class="main">
 
             <div class="pereplata">
-              <span>Переплата на 18 сентября</span>
-              <div>
-                <span class="summa">560,23 грн</span>
-              </div>
+              <span>Сумма выплачена в полном объеме</span>
             </div>
 
-            <div class="oplacheno">
-              <span>Оплачено</span>
-              <div>
-                <span class="summa">560,23 грн</span>
+            <div class="oplacheno" style="padding: 32px 32px;">
+              <span>Оплачено на 1 октября</span>
+              <div style="margin: 8px 0;">
+                <span class="summa" style="font-size: 20px; font-weight: bold; padding: 0 0px;"><%= @sum %> грн</span>
               </div>
 
-              <div class="detali">
+              <!--div class="detali">
                   <div>
                     <span>12.10.12</span><span>126,56 грн</span>
                   </div>
@@ -53,17 +50,17 @@
                   <div>
                     <span>12.08.12</span><span>56,56 грн</span>
                   </div>
-              </div>
+              </div-->
 
             </div>
 
-            <div class="nachisleno">
-              <span>Начислено</span>
-              <div>
-                <span class="summa">560,23 грн</span>
+            <div class="nachisleno" style="padding: 0px 32px; padding-bottom: 32px;">
+              <span>Начислено на 1 октября</span>
+              <div style="margin: 8px 0;">
+                <span class="summa" style="font-size: 20px">54428.4 грн</span>
               </div>
 
-                <div class="detali">
+                <!--div class="detali">
                   <div>
                     <span>1.10.12</span><span>243,56 грн</span>
                   </div>
@@ -73,24 +70,30 @@
                   <div>
                     <span>1.08.12</span><span>243,56 грн</span>
                   </div>
-                </div>
+                </div-->
             </div>
 
             <section class="plategi">
 
-                <h4>23 платежа</h4>
+                <h4><%= @plategi.count %> платежа</h4>
 
-                <div>
-                  <span>12.10.12</span><span>126,56 грн</span>
-                </div>
-                <div>
-                  <span>12.09.12</span><span>26,56 грн</span>
-                </div>
-                <div>
-                  <span>12.08.12</span><span>56,56 грн</span>
-                </div>
+                <% @plategi.each do |plateg| %>
 
+                  <div style="padding: 6px 0;">
+                    <span style="font-size: 12px;"><%= plateg.rahunok.vipiska_file.file_for_data %> &mdash;</span><span style="margin-left: 8px;"><%= plateg.summa %> грн</span>
+                  </div>
 
+                <% end %>
+
+            </section>
+
+            <section class="dogovor_arenda">
+              <div>
+                <h4>
+                  <%= link_to "Договор аренды № 40533700122", :controller => "finansist/dogovora", :action => "show", :id=> 2382 %>
+                </h4>
+                <div>Месячная арендная плата: 6 047,60 грн</div>
+              </div>
             </section>
 
         </section>
@@ -142,8 +145,10 @@
                   08300, м.Бориспіль, вулиця Київський шлях, будинок 31
               </div>
               <div class="map">
-
               </div>
+
+
+
               <a href="#">посмотреть на карте</a>
             </div>
 

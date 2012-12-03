@@ -38,7 +38,6 @@
 <section style="padding: 32px 48px;">
 
   <div style="margin-bottom: 16px;">
-   <div style="font-size:18px; text-decoration: underline; margin-bottom: 24px; color: blue;">Все платежи</div>
    <div style="font-size:24px; margin: 8px 0px; font-weight: bold;">Платежи за <%= @vipiska.file_data %></div>
   </div>
 
@@ -50,28 +49,74 @@
     </nav>
 
     <% @plategi.each do |plateg| %>
-    <section style="display: -webkit-box;">
-        <div style="width: 576px; background-color:#e9e9e9; margin-bottom: 16px;">
-          <div style="display: -webkit-box; padding: 14px 16px; border-bottom: 1px #555555 dashed;">
-            <div style="font-size: 18px; width: 288px;">
-              <div style="margin-bottom: 4px;"><%= plateg.platnik_name %></div>
-              <div style="color: #888888; font-size: 0.8em;"><%= plateg.platnik %></div>
-            </div>
-            <div style="width: 128px;"></div>
-            <div style="font-size: 16px; font-weight: bold;"><%= plateg.summa_to_text %></div>
-          </div>
-          <div style="display: -webkit-box; padding: 14px 16px; color: #888888;">
-            <div style="margin-right: 24px;"><%= plateg.bank %></div>
-            <div style="width: 340px;"><%= plateg.comment %></div>
-          </div>
-        </div>
+    <% if !plateg.platnik_id.nil? %>
 
-        <div style="width: 420px; font-size: 10px; margin-left: 32px;">
-          <code style="border: none; color: #444444; background-color: #ffffff;">
-            <%= plateg.content.html_safe %>
-          </code>
-        </div>
-    </section>
+        <section style="display: -webkit-box;">
+            <div style="width: 576px; background-color:#e9e9e9; margin-bottom: 16px;">
+              <div style="display: -webkit-box; padding: 14px 16px; border-bottom: 1px #555555 dashed;">
+                <div style="font-size: 18px; width: 288px;">
+                  <div style="margin-bottom: 4px;">
+                    <% if plateg.platnik_id.nil? %>
+                      <%= plateg.platnik_name %>
+                    <% else %>
+                      <%= link_to plateg.platnik_name, :controller => 'finansist/arendators', :action => 'show', :id => plateg.platnik_id  %>
+                    <% end %>
+                  </div>
+                  <div style="color: #888888; font-size: 0.8em;"><%= plateg.platnik %></div>
+                </div>
+                <div style="width: 128px;"></div>
+                <div style="font-size: 16px; font-weight: bold;"><%= plateg.summa_to_text %></div>
+              </div>
+              <div style="display: -webkit-box; padding: 14px 16px; color: #888888;">
+                <div style="margin-right: 24px;"><%= plateg.bank %></div>
+                <div style="width: 340px;"><%= plateg.comment %></div>
+              </div>
+            </div>
+
+            <div style="width: 420px; font-size: 10px; margin-left: 32px;">
+              <code style="border: none; color: #444444; background-color: #ffffff;">
+                <%= plateg.content.html_safe %>
+              </code>
+            </div>
+        </section>
+
+    <% end %>
+    <% end %>
+
+
+    <% @plategi.each do |plateg| %>
+    <% if plateg.platnik_id.nil? %>
+
+        <section style="display: -webkit-box;">
+            <div style="width: 576px; background-color:#e9e9e9; margin-bottom: 16px;">
+              <div style="display: -webkit-box; padding: 14px 16px; border-bottom: 1px #555555 dashed;">
+                <div style="font-size: 18px; width: 288px;">
+                  <div style="margin-bottom: 4px;">
+                    <% if plateg.platnik_id.nil? %>
+                      <%= plateg.platnik_name %>
+                    <% else %>
+                      <%= link_to plateg.platnik_name, :controller => 'finansist/arendators', :action => 'show', :id => plateg.platnik_id  %>
+                    <% end %>
+                  </div>
+                  <div style="color: #888888; font-size: 0.8em;"><%= plateg.platnik %></div>
+                </div>
+                <div style="width: 128px;"></div>
+                <div style="font-size: 16px; font-weight: bold;"><%= plateg.summa_to_text %></div>
+              </div>
+              <div style="display: -webkit-box; padding: 14px 16px; color: #888888;">
+                <div style="margin-right: 24px;"><%= plateg.bank %></div>
+                <div style="width: 340px;"><%= plateg.comment %></div>
+              </div>
+            </div>
+
+            <div style="width: 420px; font-size: 10px; margin-left: 32px;">
+              <code style="border: none; color: #444444; background-color: #ffffff;">
+                <%= plateg.content.html_safe %>
+              </code>
+            </div>
+        </section>
+
+    <% end %>
     <% end %>
 
 

@@ -53,6 +53,17 @@ class Plateg < ActiveRecord::Base
     end
   end
 
+  def platnik_id
+    edrpou = platnik
+    person = Person.find_by_edrpou edrpou
+    if !person.nil?
+      return person.id
+    else
+      return nil
+    end
+  end
+
+
   def self.string_to_money(money)
     s = money.round(2)
     kop = (s % 1).round(2)

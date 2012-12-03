@@ -7,6 +7,7 @@ class FileController < ApplicationController
 
   def loadModule
     load "#{Rails.root}/lib/vpfiles.rb"
+    load "#{Rails.root}/lib/vp/file_factory.rb"
   end
 
   def upload

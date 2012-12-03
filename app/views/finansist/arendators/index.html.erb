@@ -137,36 +137,83 @@
 
   <ul style="margin-left: 32px; ">
 
+    <% i = 0 %>
     <% @arendators.each do |arendator| %>
-      <li class="arendator">
+    <% if !(@sum_all[i] == 0.0) %>
+            <li class="arendator">
 
-              <div class="dolg no">
-                <a href="#"><span>должник</span></a>
-              </div>
+                    <div class="dolg no">
+                      <a href="#"><span>должник</span></a>
+                    </div>
 
-              <div class="arendator_info">
+                    <div class="arendator_info">
 
-                  <div style="display: -webkit-box;">
-                      <div class="arendator_name">
-                        <%= link_to "<span>#{arendator.name}</span>".html_safe, :controller => 'finansist/arendators', :action => 'show', :id => arendator.id %>
-                      </div>
-                  </div>
+                        <div style="display: -webkit-box;">
+                            <div class="arendator_name">
+                              <%= link_to "<span>#{arendator.name}</span>".html_safe, :controller => 'finansist/arendators', :action => 'show', :id => arendator.id %>
+                            </div>
+                        </div>
 
-                  <div class="arendator_money">
-                      23 434,34 грн
-                  </div>
+                        <div class="arendator_money">
+                            <%= @sum_all[i] %> грн
+                        </div>
 
-                  <div class="arendator_plategi">
-                    <a href="#">13 платежей</a>
-                  </div>
+                        <div class="arendator_plategi">
+                          <a href="#"><%= @plateg_count[i] %> платежей</a>
+                        </div>
 
-                  <div class="arendator_dogovor">
-                    <a href="#">5 договоров аренды</a>
-                  </div>
+                        <div class="arendator_dogovor">
+                          <a href="#">1 договоров аренды</a>
+                        </div>
 
-              </div><!-- arendator -->
+                    </div><!-- arendator -->
 
-          </li>
+                </li>
+    <% end %>
+    <% i +=1 %>
+    <% end %>
+
+  </ul>
+
+
+</section>
+
+
+
+<section>
+
+  <ul style="margin-left: 32px; ">
+
+    <% i = 0 %>
+    <% @arendators.each do |arendator| %>
+    <% if (@sum_all[i] == 0.0) %>
+            <li class="arendator">
+
+                    <div class="dolg no">
+                      <a href="#"><span>должник</span></a>
+                    </div>
+
+                    <div class="arendator_info">
+
+                        <div style="display: -webkit-box;">
+                            <div class="arendator_name">
+                              <%= link_to "<span>#{arendator.name}</span>".html_safe, :controller => 'finansist/arendators', :action => 'show', :id => arendator.id %>
+                            </div>
+                        </div>
+
+                        <div class="arendator_money">
+                            <%= @sum_all[i] %> грн
+                        </div>
+
+                        <div class="arendator_dogovor">
+                          <a href="#">1 договор аренды</a>
+                        </div>
+
+                    </div><!-- arendator -->
+
+                </li>
+    <% end %>
+    <% i +=1 %>
     <% end %>
 
   </ul>
